@@ -1,6 +1,7 @@
 import java.util.Scanner;
-
+// jobScheduler java class
 public class JobScheduler {
+	// method to find completion time of processes
     static int[] completion_time(int[][] arr, int total_process, int[] completionTime) {
         for (int i = 0; i < total_process; i++) {
             if (i == 0) {
@@ -14,7 +15,7 @@ public class JobScheduler {
         }
         return completionTime;
     }
-
+    // method to find turn around time of processes
     static int[] turn_arround_time(int[][] arr_of_process, int total_process, int[] completionTime,
             int[] turnArroundTime) {
         for (int i = 0; i < total_process; i++) {
@@ -22,14 +23,14 @@ public class JobScheduler {
         }
         return turnArroundTime;
     }
-
+    // method to find waiting time of processes
     static int[] waiting_time(int[][] arr_of_process, int total_process, int[] waitingTime, int[] turnArroundTime) {
         for (int i = 0; i < total_process; i++) {
             waitingTime[i] = turnArroundTime[i] - arr_of_process[i][1];
         }
         return waitingTime;
     }
-
+    // method to find average waiting time of all processes
     static float average_waiting_time(int[] waitingTime, int total_process, float averageWaitingTime) {
         for (int i = 0; i < total_process; i++) {
             averageWaitingTime += waitingTime[i];
@@ -37,14 +38,14 @@ public class JobScheduler {
         averageWaitingTime /= total_process;
         return averageWaitingTime;
     }
-
+    // method to find maximum waiting time any process take in queue
     static int maximum_waiting_time_period(int[] waitingTime, int total_process, int maximumWaitingTimePeriod) {
         for (int i = 0; i < total_process; i++) {
             maximumWaitingTimePeriod += waitingTime[i];
         }
         return maximumWaitingTimePeriod;
     }
-
+    // main method
     static public void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter total no of processes - ");
@@ -83,5 +84,6 @@ public class JobScheduler {
         System.out.println("Average Waiting time is = " + averageWaitingTime);
         maximumWaitingTimePeriod = maximum_waiting_time_period(waitingTime, total_process, maximumWaitingTimePeriod);
         System.out.println("Maximum Waiting time period for process in queue is = " + maximumWaitingTimePeriod);
+        scan.close();
     }
 }

@@ -1,15 +1,15 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
+// Shopping cart main class
 public class shopping_cart {
+	// initialize global variables of items, price and value	
     static String items[] = { "Bat", "Ball", "Badminton", "Bottle" };
     static int price[] = { 1000, 50, 250, 100 };
     static int value[] = { 10, 20, 15, 25 };
     static Scanner scan = new Scanner(System.in);
+    // create Hash map for user cart
     static HashMap<String, Integer> cart = new HashMap<String, Integer>();
-
+    // method to display item menu of shop    
     static void display_items(String[] items, int[] value, int[] price) {
         System.out.println("Available items in shop - ");
         System.out.println("S.no Item Value Price");
@@ -17,13 +17,13 @@ public class shopping_cart {
             System.out.println((i + 1) + " " + items[i] + " " + value[i] + " " + price[i]);
         }
     }
-
+    // method to display cart items
     static void display_cart(HashMap<String, Integer> cart) {
         System.out.println(cart);
         display_items(items, value, price);
         operations();
     }
-
+    // method to add items in user cart
     static void add_to_cart(HashMap<String, Integer> cart, int[] value) {
         System.out.println("Enter S.no of item which you want to add to your cart");
         int item_number = scan.nextInt();
@@ -49,7 +49,7 @@ public class shopping_cart {
             add_to_cart(cart, value);
         }
     }
-
+    // method to remove items from cart
     static void remove_from_cart(HashMap<String, Integer> cart, int[] value) {
         System.out.println("Enter S.no of item which you want to remove from your cart");
         int item_number = scan.nextInt();
@@ -74,7 +74,7 @@ public class shopping_cart {
             display_cart(cart);
         }
     }
-
+    // method to generate user bill
     static void generate_bill(HashMap<String, Integer> cart) {
         int total_bill = 0;
         if (cart.isEmpty()) {
@@ -90,12 +90,12 @@ public class shopping_cart {
         }
         operations();
     }
-
+    // method of all operations of shop
     static void operations() {
         System.out.println(
                 "\nEnter 1 to view your cart\nEnter 2 to add item to your cart\nEnter 3 to remove item from your cart\nEnter 4 to generate bill\nEnter 5 to exit from shop");
-        int num = scan.nextInt();
-        switch (num) {
+        int input = scan.nextInt();
+        switch (input) {
             case 1:
                 display_cart(cart);
                 break;
@@ -116,9 +116,10 @@ public class shopping_cart {
                 operations();
         }
     }
-
+    // main method of class shopping cart
     public static void main(String[] args) {
         display_items(items, value, price);
         operations();
+        scan.close();
     }
 }

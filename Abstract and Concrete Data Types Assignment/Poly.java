@@ -1,6 +1,8 @@
 import java.util.Scanner;
+// single polynomial java class
 public final class Poly {
 	static Scanner scan=new Scanner(System.in);
+	// method to add two polynomial equations
 	private static int[] addPoly(int[] poly1,int[] poly2){
 		System.out.println("First polynomial expression is =");
 		printPoly(poly1, poly1.length);
@@ -16,6 +18,7 @@ public final class Poly {
 		}
 		return sum;
 	}
+	// method to multiply two polynomial equations
 	private static int[] multiplyPoly(int[] poly1,int[] poly2){
 		System.out.println("First polynomial expression is =");
 		printPoly(poly1, poly1.length);
@@ -32,9 +35,11 @@ public final class Poly {
 		}
 		return multiplication;
 	}
+	// method to find maximum of two numbers
 	private static int max(int x, int y){
 		return (x>y)? x :y ;
 	}
+	// method to print polynomial equation on console
 	private static void printPoly(int arr[],int n){
 		for (int i = 0; i < n; i++) {
 			System.out.print(arr[i]);
@@ -47,10 +52,12 @@ public final class Poly {
 		}
 		System.out.println();
 	}
+	//method to find degree of the polynomial equation
 	private static int find_degree(int[] arr){
 		printPoly(arr, arr.length);
 		return arr.length-1;
 	}
+	// method to evaluate the polynomial equation on any value
 	private static float evaluate(int[] poly,float num){
 		float result=0;
 		for (int i = 0; i < poly.length; i++) {
@@ -58,6 +65,7 @@ public final class Poly {
 		}
 		return result;
 	}
+	// method to take user input and perform operations on polynomials
 	private static void operations(int[] arr){
 		System.out.println("Enter 1 to evaluate the value of Polynomial expression\n"
 				+ "Enter 2 to find degree of polynomial expression\n"
@@ -124,7 +132,7 @@ public final class Poly {
 		}
 		operations(arr);
 	}
-	
+	// main method
 	public static void main(String[] args) {
 		System.out.println("Enter total number of integers in polynomial = ");
 		int n=scan.nextInt();

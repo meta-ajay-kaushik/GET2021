@@ -1,42 +1,43 @@
 import java.util.Scanner;
-
+// hexadecimal calculator operations java class
 public class HexCalc {
+	// method to add two hexadecimal numbers
     static String add(String num1, String num2) {
         int decimal_num1 = Integer.parseInt(num1, 16);
         int decimal_num2 = Integer.parseInt(num2, 16);
         int sum = decimal_num1 + decimal_num2;
         return Integer.toHexString(sum);
     }
-
+    // method to subtract two hexadecimal numbers
     static String subtract(String num1, String num2) {
         int decimal_num1 = Integer.parseInt(num1, 16);
         int decimal_num2 = Integer.parseInt(num2, 16);
         int subtraction = decimal_num1 - decimal_num2;
         return Integer.toHexString(subtraction);
     }
-
+    // method to multiply two hexadecimal numbers
     static String multiply(String num1, String num2) {
         int decimal_num1 = Integer.parseInt(num1, 16);
         int decimal_num2 = Integer.parseInt(num2, 16);
         int multiplication = decimal_num1 * decimal_num2;
         return Integer.toHexString(multiplication);
     }
-
+    // method to divide two hexadecimal numbers
     static String divide(String num1, String num2) {
         int decimal_num1 = Integer.parseInt(num1, 16);
         int decimal_num2 = Integer.parseInt(num2, 16);
         int division = decimal_num1 / decimal_num2;
         return Integer.toHexString(division);
     }
-
+    // method to convert hexadecimal to decimal
     static int hexa_to_decimal(String hexa) {
         return Integer.parseInt(hexa, 16);
     }
-
+    // method to convert decimal to hexadecimal
     static String decimal_to_hexa(int deci) {
         return Integer.toHexString(deci);
     }
-
+    // method to compare two hexadecimal numbers are equal or not
     static boolean compare_for_equal(String num1, String num2) {
         int result_of_compare = num1.compareTo(num2);
         if (result_of_compare == 0) {
@@ -45,7 +46,7 @@ public class HexCalc {
             return false;
         }
     }
-
+    // method to compare if fist hexadecimal number greater or not
     static boolean compare_for_greater(String num1, String num2) {
         int result_of_compare = num1.compareTo(num2);
         if (result_of_compare > 0) {
@@ -54,7 +55,7 @@ public class HexCalc {
             return false;
         }
     }
-
+    // method to compare if fist hexadecimal number lesser or not
     static boolean compare_for_lesser(String num1, String num2) {
         int result_of_compare = num1.compareTo(num2);
         if (result_of_compare < 0) {
@@ -63,7 +64,7 @@ public class HexCalc {
             return false;
         }
     }
-
+    // method to take user input
     static void take_input() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter two Hexadecimal numbers");
@@ -136,11 +137,13 @@ public class HexCalc {
                 break;
             case 0:
                 System.out.println("Thanks to use this HaxCalc, good bye.");
+                scan.close();
                 return;
             default:
                 System.out.println("Wrong Input, Try again!");
                 take_input();
         }
+        scan.close();
     }
 
     public static void main(String[] args) {
