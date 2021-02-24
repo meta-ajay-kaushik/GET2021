@@ -1,31 +1,37 @@
 import java.util.Scanner;
+// sparse matrix java class
 public class sparse_matrix {
     private int max = 100;
     private int arr[][] = new int[max][3];
     private int row, col;
     private int length;
     static Scanner scan = new Scanner(System.in);
+    // sparse matrix constructor
     private sparse_matrix(int r, int c) {
         row = r;
         col = c;
         length = 0;
     }
+    // method to insert item into sparse matrix
     private void insert(int r, int c, int val) {
         arr[length][0] = r;
         arr[length][1] = c;
         arr[length][2] = val;
         length++;
     }
+    // method to print sparse matrix
     private void print() {
         System.out.println("Sparse Matrix: "+row+"x"+col+"\nRow Col Value");
         for (int i = 0; i < length; i++) {
             System.out.println(arr[i][0] + "  " + arr[i][1] + "  " + arr[i][2]);
         }
     }
+    // method to check a sparse matrix is symmetrical or not
     private static boolean isSymmetric(sparse_matrix s1){
     	if(s1.row!=s1.col){
     		return false;
     	}else{
+    		// call transpose method to find transpose of the matrix
     		sparse_matrix transpose = s1.transpose();
     		int i = 0;
     		while(i<s1.length){
@@ -43,6 +49,7 @@ public class sparse_matrix {
 		}
     	return false;
     }
+    // method to add two sparse matrix
     private void add(sparse_matrix s2) {
         if (row != s2.row || col != s2.col) {
             System.out.println("Matrices can't be added");
@@ -59,9 +66,9 @@ public class sparse_matrix {
                     output.insert(arr[i][0], arr[i][1], arr[i][2]);
                     i++;
                 } else {
-                    int addedval = arr[i][2] + s2.arr[j][2];
-                    if (addedval != 0)
-                        output.insert(arr[i][0], arr[i][1], addedval);
+                    int sum = arr[i][2] + s2.arr[j][2];
+                    if (sum != 0)
+                        output.insert(arr[i][0], arr[i][1], sum);
                     i++;
                     j++;
                 }
@@ -73,7 +80,7 @@ public class sparse_matrix {
             output.print();
         }
     }
-
+    // method to find transpose of a sparse matrix
     private sparse_matrix transpose() {
         sparse_matrix output = new sparse_matrix(col, row);
         output.length = length;
@@ -94,7 +101,7 @@ public class sparse_matrix {
         }
         return output;
     }
-    
+    // method to multiply two sparse matrix
     private void multiply(sparse_matrix s2) {
         if (col != s2.row) {
             System.out.println("Can't multiply, " + "Invalid dimensions");
@@ -128,9 +135,7 @@ public class sparse_matrix {
         }
         result.print();
     }
-
-    
-
+    // method to take input from user and perform operations
     private static void operations(sparse_matrix s1) {
         System.out.println(
                 "Enter 1 to transpose\nEnter 2 to check symmetrical or not\nEnter 3 to add two matrices\nEnter 4 to multiply two matrices\nEnter 5 to exit.");
@@ -168,6 +173,7 @@ public class sparse_matrix {
         }
         operations(s1);
     }
+    // method to take input of a sparse matrix
     private static sparse_matrix take_sparse_matrix() {
         System.out.println("Enter rows of matrix");
         int row = scan.nextInt();
@@ -211,8 +217,10 @@ public class sparse_matrix {
         }
         return s1;
     }
+    // main method
     public static void main(String args[]) {
         sparse_matrix s1 = take_sparse_matrix();
         operations(s1);
+        scan.close();
     }
 }
