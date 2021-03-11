@@ -14,7 +14,6 @@ public class TestFixXY{
 			{new int[]{5,4,9,4,9,5},new int[]{9,4,5,4,5,9}},{new int[]{1,4,1,5},new int[]{1,4,5,1}},{new int[]{1,4,1,5,5,4,1},new int[]{1,4,5,1,1,4,5}}
 		});
 	}
-	
 	int[] output;
 	int[] input;
 	int x=4;

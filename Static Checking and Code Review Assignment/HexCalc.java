@@ -3,69 +3,69 @@ import java.util.Scanner;
 public class HexCalc {
 	// method to add two hexadecimal numbers
     static String add(String num1, String num2) {
-        int decimal_num1 = Integer.parseInt(num1, 16);
-        int decimal_num2 = Integer.parseInt(num2, 16);
-        int sum = decimal_num1 + decimal_num2;
+        int decimalNum1 = Integer.parseInt(num1, 16);
+        int decimalNum2 = Integer.parseInt(num2, 16);
+        int sum = decimalNum1 + decimalNum2;
         return Integer.toHexString(sum);
     }
     // method to subtract two hexadecimal numbers
     static String subtract(String num1, String num2) {
-        int decimal_num1 = Integer.parseInt(num1, 16);
-        int decimal_num2 = Integer.parseInt(num2, 16);
-        int subtraction = decimal_num1 - decimal_num2;
+        int decimalNum1 = Integer.parseInt(num1, 16);
+        int decimalNum2 = Integer.parseInt(num2, 16);
+        int subtraction = decimalNum1 - decimalNum2;
         return Integer.toHexString(subtraction);
     }
     // method to multiply two hexadecimal numbers
     static String multiply(String num1, String num2) {
-        int decimal_num1 = Integer.parseInt(num1, 16);
-        int decimal_num2 = Integer.parseInt(num2, 16);
-        int multiplication = decimal_num1 * decimal_num2;
+        int decimalNum1 = Integer.parseInt(num1, 16);
+        int decimalNum2 = Integer.parseInt(num2, 16);
+        int multiplication = decimalNum1 * decimalNum2;
         return Integer.toHexString(multiplication);
     }
     // method to divide two hexadecimal numbers
     static String divide(String num1, String num2) {
-        int decimal_num1 = Integer.parseInt(num1, 16);
-        int decimal_num2 = Integer.parseInt(num2, 16);
-        int division = decimal_num1 / decimal_num2;
+        int decimalNum1 = Integer.parseInt(num1, 16);
+        int decimalNum2 = Integer.parseInt(num2, 16);
+        int division = decimalNum1 / decimalNum2;
         return Integer.toHexString(division);
     }
     // method to convert hexadecimal to decimal
-    static int hexa_to_decimal(String hexa) {
+    static int hexaToDecimal(String hexa) {
         return Integer.parseInt(hexa, 16);
     }
     // method to convert decimal to hexadecimal
-    static String decimal_to_hexa(int deci) {
+    static String decimalToHexa(int deci) {
         return Integer.toHexString(deci);
     }
     // method to compare two hexadecimal numbers are equal or not
-    static boolean compare_for_equal(String num1, String num2) {
-        int result_of_compare = num1.compareTo(num2);
-        if (result_of_compare == 0) {
+    static boolean compareForEqual(String num1, String num2) {
+        int resultOfCompare = num1.compareTo(num2);
+        if (resultOfCompare == 0) {
             return true;
         } else {
             return false;
         }
     }
     // method to compare if fist hexadecimal number greater or not
-    static boolean compare_for_greater(String num1, String num2) {
-        int result_of_compare = num1.compareTo(num2);
-        if (result_of_compare > 0) {
+    static boolean compareForGreater(String num1, String num2) {
+        int resultOfCompare = num1.compareTo(num2);
+        if (resultOfCompare > 0) {
             return true;
         } else {
             return false;
         }
     }
     // method to compare if fist hexadecimal number lesser or not
-    static boolean compare_for_lesser(String num1, String num2) {
-        int result_of_compare = num1.compareTo(num2);
-        if (result_of_compare < 0) {
+    static boolean compareForLesser(String num1, String num2) {
+        int resultOfCompare = num1.compareTo(num2);
+        if (resultOfCompare < 0) {
             return true;
         } else {
             return false;
         }
     }
     // method to take user input
-    static void take_input() {
+    static void takeInput() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter two Hexadecimal numbers");
         String num1 = scan.next();
@@ -77,63 +77,63 @@ public class HexCalc {
             case 1:
                 String sum = add(num1, num2);
                 System.out.println(sum);
-                take_input();
+                takeInput();
                 break;
             case 2:
                 String sub = subtract(num1, num2);
                 System.out.println(sub);
-                take_input();
+                takeInput();
                 break;
             case 3:
                 String mul = multiply(num1, num2);
                 System.out.println(mul);
-                take_input();
+                takeInput();
                 break;
             case 4:
                 String div = divide(num1, num2);
                 System.out.println(div);
-                take_input();
+                takeInput();
                 break;
             case 5:
                 System.out.println("Enter number in hexadecimal to convert it into decimal");
                 String hexa = scan.next();
-                int hexaToDeci = hexa_to_decimal(hexa);
+                int hexaToDeci = hexaToDecimal(hexa);
                 System.out.println(hexaToDeci);
-                take_input();
+                takeInput();
                 break;
             case 6:
                 System.out.println("Enter number in decimal to convert it into hexadecimal");
                 int deci = scan.nextInt();
-                String deciToHexa = decimal_to_hexa(deci);
+                String deciToHexa = decimalToHexa(deci);
                 System.out.println(deciToHexa);
-                take_input();
+                takeInput();
                 break;
             case 7:
-                boolean is_equal = compare_for_equal(num1, num2);
-                if (is_equal == true) {
+                boolean isEqual = compareForEqual(num1, num2);
+                if (isEqual == true) {
                     System.out.println("both are equal");
                 } else {
                     System.out.println("Not equal");
                 }
-                take_input();
+                takeInput();
                 break;
             case 8:
-                boolean is_greater = compare_for_greater(num1, num2);
-                if (is_greater == true) {
+                boolean isGreater = compareForGreater(num1, num2);
+                if (isGreater == true) {
                     System.out.println("num1 is greater");
                 } else {
                     System.out.println("num1 is Not greater");
                 }
-                take_input();
+                takeInput();
                 break;
             case 9:
-                boolean is_lesser = compare_for_lesser(num1, num2);
-                if (is_lesser == true) {
+                boolean isLesser = compareForLesser(num1, num2);
+                if (isLesser == true) {
                     System.out.println("num1 is lesser");
                 } else {
                     System.out.println("num1 is Not lesser");
                 }
-                take_input();
+                takeInput();
                 break;
             case 0:
                 System.out.println("Thanks to use this HaxCalc, good bye.");
@@ -141,12 +141,12 @@ public class HexCalc {
                 return;
             default:
                 System.out.println("Wrong Input, Try again!");
-                take_input();
+                takeInput();
         }
         scan.close();
     }
 
     public static void main(String[] args) {
-        take_input();
+        takeInput();
     }
 }

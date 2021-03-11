@@ -15,7 +15,7 @@ public class ShoppingCart {
     // create Hash map for user cart
     HashMap<String, Integer> cart = new HashMap<String, Integer>();
     // method to display item menu of shop    
-    void display_items(String[] items, int[] value, int[] price) {
+    void displayItems(String[] items, int[] value, int[] price) {
         System.out.println("Available items in shop - ");
         System.out.println("S.no Item Value Price");
         for (int i = 0; i < items.length; i++) {
@@ -23,76 +23,76 @@ public class ShoppingCart {
         }
     }
     // method to display cart items
-    void display_cart(HashMap<String, Integer> cart) {
+    void displayCart(HashMap<String, Integer> cart) {
         System.out.println(cart);
-        display_items(items, stocks, price);
+        displayItems(items, stocks, price);
         operations();
     }
     // method to add items in user cart
-    void add_to_cart(HashMap<String, Integer> cart, int[] stocks) {
+    void addToCart(HashMap<String, Integer> cart, int[] stocks) {
         System.out.println("Enter S.no of item which you want to add to your cart");
-        int item_number = scan.nextInt();
-        if (item_number <= stocks.length && item_number > 0) {
+        int itemNumber = scan.nextInt();
+        if (itemNumber <= stocks.length && itemNumber > 0) {
             System.out.println("Enter value of item you want to you");
-            int val_item = scan.nextInt();
-            if (val_item <= stocks[item_number - 1]) {
+            int valItem = scan.nextInt();
+            if (valItem <= stocks[itemNumber - 1]) {
                 System.out.println("Item added to cart...");
-                stocks[item_number - 1] -= val_item;
+                stocks[itemNumber - 1] -= valItem;
                 // cart.put(items[item_number - 1], val_item);
-                if (cart.get(items[item_number - 1]) != null) {
-                    cart.put(items[item_number - 1], cart.get(items[item_number - 1]) + val_item);
+                if (cart.get(items[itemNumber - 1]) != null) {
+                    cart.put(items[itemNumber - 1], cart.get(items[itemNumber - 1]) + valItem);
                 } else {
-                    cart.put(items[item_number - 1], val_item);
+                    cart.put(items[itemNumber - 1], valItem);
                 }
-                display_cart(cart);
+                displayCart(cart);
             } else {
                 System.out.println("value is greater than available - try again");
-                add_to_cart(cart, stocks);
+                addToCart(cart, stocks);
             }
         } else {
             System.out.println("wrong item number, try again");
-            add_to_cart(cart, stocks);
+            addToCart(cart, stocks);
         }
     }
     // method to remove items from cart
-    void remove_from_cart(HashMap<String, Integer> cart, int[] stocks) {
+    void removeFromCart(HashMap<String, Integer> cart, int[] stocks) {
         System.out.println("Enter S.no of item which you want to remove from your cart");
-        int item_number = scan.nextInt();
-        if (item_number <= stocks.length && item_number > 0) {
-            if (cart.get(items[item_number - 1]) != null) {
+        int itemNumber = scan.nextInt();
+        if (itemNumber <= stocks.length && itemNumber > 0) {
+            if (cart.get(items[itemNumber - 1]) != null) {
                 System.out.println("Enter value of item you want to remove");
-                int val_item = scan.nextInt();
-                if (val_item < cart.get(items[item_number - 1])) {
+                int valItem = scan.nextInt();
+                if (valItem < cart.get(items[itemNumber - 1])) {
                     System.out.println("Item updated to cart...");
-                    cart.put(items[item_number - 1], cart.get(items[item_number - 1]) - val_item);
-                    stocks[item_number - 1] += val_item;
-                    display_cart(cart);
+                    cart.put(items[itemNumber - 1], cart.get(items[itemNumber - 1]) - valItem);
+                    stocks[itemNumber - 1] += valItem;
+                    displayCart(cart);
                 } else {
-                    cart.remove(items[item_number - 1]);
-                    display_cart(cart);
+                    cart.remove(items[itemNumber - 1]);
+                    displayCart(cart);
                 }
             } else {
                 System.out.println("Item already not in the cart");
-                display_cart(cart);
+                displayCart(cart);
             }
         } else {
             System.out.println("wrong item number, try again");
-            display_cart(cart);
+            displayCart(cart);
         }
     }
     // method to generate user bill
-    void generate_bill(HashMap<String, Integer> cart) {
-        int total_bill = 0;
+    void generateBill(HashMap<String, Integer> cart) {
+        int totalBill = 0;
         if (cart.isEmpty()) {
             System.out.println("Your cart is empty");
         } else {
             // display_cart(cart);
             for (int i = 0; i < items.length; i++) {
                 if (cart.containsKey(items[i]) == true) {
-                    total_bill += cart.get(items[i]) * price[i];
+                    totalBill += cart.get(items[i]) * price[i];
                 }
             }
-            System.out.println("Your total bill is = " + total_bill + " rs");
+            System.out.println("Your total bill is = " + totalBill + " rs");
         }
         operations();
     }
@@ -103,16 +103,16 @@ public class ShoppingCart {
         int input = scan.nextInt();
         switch (input) {
             case 1:
-                display_cart(cart);
+                displayCart(cart);
                 break;
             case 2:
-                add_to_cart(cart, stocks);
+                addToCart(cart, stocks);
                 break;
             case 3:
-                remove_from_cart(cart, stocks);
+                removeFromCart(cart, stocks);
                 break;
             case 4:
-                generate_bill(cart);
+                generateBill(cart);
                 break;
             case 5:
                 System.out.println("Thanks to visit out shop, good bye.");
@@ -128,7 +128,7 @@ public class ShoppingCart {
         int price[] = { 1000,2400, 50, 250, 100 };
         int stocks[] = { 10,15, 20, 15, 25 };
     	ShoppingCart s=new ShoppingCart(items, price, stocks);
-        s.display_items(s.items, s.stocks, s.price);
+        s.displayItems(s.items, s.stocks, s.price);
         s.operations();
         s.scan.close();
     }

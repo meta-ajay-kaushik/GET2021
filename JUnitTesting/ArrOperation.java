@@ -102,16 +102,16 @@ public class ArrOperation {
 						throw new AssertionError("two adjacents X values are there");
 					}
 				}
-				int count_x=0,count_y=0;
+				int countX=0,countY=0;
 				for (int i = 0; i < arr.length; i++) {
 					if(arr[i]==x){
-						count_x++;
+						countX++;
 					}
 					if (arr[i]==y) {
-						count_y++;
+						countY++;
 					}
 				}
-				if(count_x!=count_y){
+				if(countX!=countY){
 					throw new AssertionError("there are unequal numbers of X and Y");
 				}
 				for (int i = 0; i < arr.length; i++) {
@@ -179,10 +179,10 @@ public class ArrOperation {
 		switch (input) {
 		case 1:
 			System.out.println("Enter total no of elements in array");
-			int total_num=scan.nextInt();
-			int[] arr=new int[total_num];
+			int totalNum=scan.nextInt();
+			int[] arr=new int[totalNum];
 			System.out.println("Enter elements of array");
-			for (int i = 0; i < total_num; i++) {
+			for (int i = 0; i < totalNum; i++) {
 				arr[i]=scan.nextInt();
 			}
 			int max=maxMirror(arr);
@@ -190,10 +190,10 @@ public class ArrOperation {
 			break;
 		case 2:
 			System.out.println("Enter total no of elements in array");
-			int total_num1=scan.nextInt();
-			int[] arr1=new int[total_num1];
+			int totalNum1=scan.nextInt();
+			int[] arr1=new int[totalNum1];
 			System.out.println("Enter elements of array");
-			for (int i = 0; i < total_num1; i++) {
+			for (int i = 0; i < totalNum1; i++) {
 				arr1[i]=scan.nextInt();
 			}
 			int clumps=countClumps(arr1);
@@ -201,32 +201,32 @@ public class ArrOperation {
 			break;
 		case 3:
 			System.out.println("Enter total no of elements in array");
-			int total_num2=scan.nextInt();
-			int[] arr2=new int[total_num2];
+			int totalNum2=scan.nextInt();
+			int[] arr2=new int[totalNum2];
 			System.out.println("Enter elements of array");
-			for (int i = 0; i < total_num2; i++) {
+			for (int i = 0; i < totalNum2; i++) {
 				arr2[i]=scan.nextInt();
 			}
 			System.out.println("Enter value of X");
 			int x=scan.nextInt();
 			System.out.println("Enter value of Y");
 			int y=scan.nextInt();
-			int[] fix_arr=fixXY(arr2,x,y);
-			for (int i = 0; i < fix_arr.length; i++) {
-				System.out.print(fix_arr[i]+" ");
+			int[] fixArr=fixXY(arr2,x,y);
+			for (int i = 0; i < fixArr.length; i++) {
+				System.out.print(fixArr[i]+" ");
 			}
 			System.out.println();
 			break;
 		case 4:
 			System.out.println("Enter total no of elements in array");
-			int total_num3=scan.nextInt();
-			int[] arr3=new int[total_num3];
+			int totalNum3=scan.nextInt();
+			int[] arr3=new int[totalNum3];
 			System.out.println("Enter elements of array");
-			for (int i = 0; i < total_num3; i++) {
+			for (int i = 0; i < totalNum3; i++) {
 				arr3[i]=scan.nextInt();
 			}
-			int split_index=splitArray(arr3);
-			System.out.println(split_index);
+			int splitIndex=splitArray(arr3);
+			System.out.println(splitIndex);
 			break;
 		case 5:
 			System.out.println("Good bye...");

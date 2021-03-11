@@ -11,7 +11,7 @@ public class StringOperations {
 	 * @return 1 if strings are equal
 	 * @return 0 if strings are not equal
 	 */
-	public static int compare_two_string(){
+	public static int compareTwoString(){
 		System.out.println("Enter String 1");
 		scan.nextLine();
 		String string1=scan.nextLine();
@@ -39,40 +39,40 @@ public class StringOperations {
 	 * Take input from user of string
 	 * @return reverse string
 	 */
-	public static String reverse_string() {
+	public static String reverseString() {
 		System.out.println("Enter a string");
 		scan.nextLine();
 		String str=scan.nextLine();
-		String reverse_str="";
+		String reverseStr="";
 		for(int i=str.length()-1;i>=0;i--){
-			reverse_str+=str.charAt(i);
+			reverseStr+=str.charAt(i);
 		}
-		return reverse_str;
+		return reverseStr;
 	}
 	/**
 	 * Change case from lower to upper and vice-versa.
 	 * @param str, requires string to change its cases
 	 * print new string with changed cases
 	 */
-	public static void change_case_of_characters(String str){
-		StringBuffer new_string=new StringBuffer(str);
+	public static void changeCaseOfCharacters(String str){
+		StringBuffer newString=new StringBuffer(str);
 		for (int i = 0; i < str.length(); i++) {
 			if (Character.isLowerCase(str.charAt(i))) {
-				new_string.setCharAt(i, Character.toUpperCase(str.charAt(i)));
+				newString.setCharAt(i, Character.toUpperCase(str.charAt(i)));
 			}
 			else if (Character.isUpperCase(str.charAt(i))) {
-				new_string.setCharAt(i, Character.toLowerCase(str.charAt(i)));
+				newString.setCharAt(i, Character.toLowerCase(str.charAt(i)));
 			}
 		}
-		System.out.println("String after replace case of characters is\n"+new_string);
+		System.out.println("String after replace case of characters is\n"+newString);
 	}
 	/**
 	 * Find largest word from string.
 	 * @param str, requires string to find largest word
 	 * @return largest word of the string
 	 */
-	public static String find_largest_word(String str){
-		String largest_word="";
+	public static String findLargestWord(String str){
+		String largestWord="";
 		String word="";
 		String[] words=new String[20];
 		int length=0;
@@ -87,13 +87,13 @@ public class StringOperations {
 				word="";
 			}
 		}
-		largest_word=words[0];
+		largestWord=words[0];
 		for (int i = 0; i <length; i++) {
-			if(largest_word.length()<=words[i].length()){
-				largest_word=words[i];
+			if(largestWord.length()<=words[i].length()){
+				largestWord=words[i];
 			}
 		}
-		return largest_word;
+		return largestWord;
 	}
 	/**
 	 * Take input from user and perform various operations.
@@ -108,29 +108,29 @@ public class StringOperations {
 		int inp=scan.nextInt();
 		switch (inp) {
 		case 1:
-			int is_equal=compare_two_string();
-			if(is_equal==1){
+			int isEqual=compareTwoString();
+			if(isEqual==1){
 				System.out.println("Both strings are equal");
 			}else{
 				System.out.println("Strings are different");
 			}
 			break;
 		case 2:
-			String reverse_str=reverse_string();
-			System.out.println("Reverse string is-\n"+reverse_str);
+			String reverseStr=reverseString();
+			System.out.println("Reverse string is-\n"+reverseStr);
 			break;
 		case 3:
 			System.out.println("Enter a string");
 			scan.nextLine();
 			String str=scan.nextLine();
-			change_case_of_characters(str);
+			changeCaseOfCharacters(str);
 			break;
 		case 4:
 			System.out.println("Enter a string");
 			scan.nextLine();
 			String string=scan.nextLine();
-			String largest_word=find_largest_word(string);
-			System.out.println("The largest word is = "+largest_word);
+			String largestWord=findLargestWord(string);
+			System.out.println("The largest word is = "+largestWord);
 			break;
 		case 5:
 			System.out.println("Good bye...");

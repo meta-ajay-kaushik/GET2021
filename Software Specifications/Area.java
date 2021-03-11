@@ -9,7 +9,7 @@ public class Area {
 	 * @param requires height of the triangle
 	 * @return area of triangle
 	 */
-	public static Double Area_of_Triangle(Double width,Double height){
+	public static Double areaOfTriangle(Double width,Double height){
 		return (width*height/2);
 	}
 	/**
@@ -18,7 +18,7 @@ public class Area {
 	 * @param requires height of the Rectangle
 	 * @return area of Rectangle
 	 */
-	public static Double Area_of_Rectangle(Double width,Double height){
+	public static Double areaOfRectangle(Double width,Double height){
 		return width*height;
 	}
 	/**
@@ -26,7 +26,7 @@ public class Area {
 	 * @param requires width of the Square
 	 * @return area of Square
 	 */
-	public static Double Area_of_Square(Double width){
+	public static Double areaOfSquare(Double width){
 		return width*width;
 	}
 	/**
@@ -34,7 +34,7 @@ public class Area {
 	 * @param requires radius of the Circle
 	 * @return area of Circle
 	 */
-	public static Double Area_of_Circle(Double radius){
+	public static Double areaOfCircle(Double radius){
 		return (22*radius*radius)/7;
 	}
 	/**
@@ -51,31 +51,31 @@ public class Area {
 		switch (input) {
 		case 1:
 			System.out.println("Enter width of Triangle");
-			Double width_of_triangle=scan.nextDouble();
+			Double widthOfTriangle=scan.nextDouble();
 			System.out.println("Enter height of Triangle");
-			Double height_of_triangle=scan.nextDouble();
-			Double area_of_triangle=Area_of_Triangle(width_of_triangle,height_of_triangle);
-			System.out.println("The area of triangle is = "+area_of_triangle);
+			Double heightOfTriangle=scan.nextDouble();
+			Double areaOfTriangle=areaOfTriangle(widthOfTriangle,heightOfTriangle);
+			System.out.println("The area of triangle is = "+areaOfTriangle);
 			break;
 		case 2:
 			System.out.println("Enter width of Rectangle");
-			Double width_of_Rectangle=scan.nextDouble();
+			Double widthOfRectangle=scan.nextDouble();
 			System.out.println("Enter height of Rectangle");
-			Double height_of_Rectangle=scan.nextDouble();
-			Double area_of_rectangle=Area_of_Rectangle(width_of_Rectangle,height_of_Rectangle);
-			System.out.println("The area of Rectangle is = "+area_of_rectangle);
+			Double heightOfRectangle=scan.nextDouble();
+			Double areaOfRectangle=areaOfRectangle(widthOfRectangle,heightOfRectangle);
+			System.out.println("The area of Rectangle is = "+areaOfRectangle);
 			break;
 		case 3:
 			System.out.println("Enter width of Square");
-			Double width_of_square=scan.nextDouble();
-			Double area_of_square=Area_of_Square(width_of_square);
-			System.out.println("The area of Square is = "+area_of_square);
+			Double widthOfSquare=scan.nextDouble();
+			Double areaOfSquare=areaOfSquare(widthOfSquare);
+			System.out.println("The area of Square is = "+areaOfSquare);
 			break;
 		case 4:
 			System.out.println("Enter radius of Circle");
 			Double radius=scan.nextDouble();
-			Double area_of_circle=Area_of_Circle(radius);
-			System.out.println("The area of Circle is = "+area_of_circle);
+			Double areaOfCircle=areaOfCircle(radius);
+			System.out.println("The area of Circle is = "+areaOfCircle);
 			break;
 		case 5:
 			System.out.println("Thanks to use Area Calculator..");

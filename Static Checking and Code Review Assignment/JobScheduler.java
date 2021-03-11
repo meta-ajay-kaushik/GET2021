@@ -2,8 +2,8 @@ import java.util.Scanner;
 // jobScheduler java class
 public class JobScheduler {
 	// method to find completion time of processes
-    static int[] completion_time(int[][] arr, int total_process, int[] completionTime) {
-        for (int i = 0; i < total_process; i++) {
+    static int[] completionTime(int[][] arr, int totalProcess, int[] completionTime) {
+        for (int i = 0; i < totalProcess; i++) {
             if (i == 0) {
                 completionTime[i] = arr[i][0] + arr[i][1];
             } else {
@@ -16,31 +16,31 @@ public class JobScheduler {
         return completionTime;
     }
     // method to find turn around time of processes
-    static int[] turn_arround_time(int[][] arr_of_process, int total_process, int[] completionTime,
+    static int[] turnArroundTime(int[][] arrOfProcess, int totalProcess, int[] completionTime,
             int[] turnArroundTime) {
-        for (int i = 0; i < total_process; i++) {
-            turnArroundTime[i] = completionTime[i] - arr_of_process[i][0];
+        for (int i = 0; i < totalProcess; i++) {
+            turnArroundTime[i] = completionTime[i] - arrOfProcess[i][0];
         }
         return turnArroundTime;
     }
     // method to find waiting time of processes
-    static int[] waiting_time(int[][] arr_of_process, int total_process, int[] waitingTime, int[] turnArroundTime) {
-        for (int i = 0; i < total_process; i++) {
-            waitingTime[i] = turnArroundTime[i] - arr_of_process[i][1];
+    static int[] waitingTime(int[][] arrOfProcess, int totalProcess, int[] waitingTime, int[] turnArroundTime) {
+        for (int i = 0; i < totalProcess; i++) {
+            waitingTime[i] = turnArroundTime[i] - arrOfProcess[i][1];
         }
         return waitingTime;
     }
     // method to find average waiting time of all processes
-    static float average_waiting_time(int[] waitingTime, int total_process, float averageWaitingTime) {
-        for (int i = 0; i < total_process; i++) {
+    static float averageWaitingTime(int[] waitingTime, int totalProcess, float averageWaitingTime) {
+        for (int i = 0; i < totalProcess; i++) {
             averageWaitingTime += waitingTime[i];
         }
-        averageWaitingTime /= total_process;
+        averageWaitingTime /= totalProcess;
         return averageWaitingTime;
     }
     // method to find maximum waiting time any process take in queue
-    static int maximum_waiting_time_period(int[] waitingTime, int total_process, int maximumWaitingTimePeriod) {
-        for (int i = 0; i < total_process; i++) {
+    static int maximumWaitingTimePeriod(int[] waitingTime, int totalProcess, int maximumWaitingTimePeriod) {
+        for (int i = 0; i < totalProcess; i++) {
             maximumWaitingTimePeriod += waitingTime[i];
         }
         return maximumWaitingTimePeriod;
@@ -49,40 +49,40 @@ public class JobScheduler {
     static public void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter total no of processes - ");
-        int total_process = scan.nextInt();
-        int[][] arr_of_process = new int[total_process][2];
-        int completionTime[] = new int[total_process];
-        int turnArroundTime[] = new int[total_process];
-        int waitingTime[] = new int[total_process];
+        int totalProcess = scan.nextInt();
+        int[][] arrOfProcess = new int[totalProcess][2];
+        int completionTime[] = new int[totalProcess];
+        int turnArroundTime[] = new int[totalProcess];
+        int waitingTime[] = new int[totalProcess];
         float averageWaitingTime = 0;
         int maximumWaitingTimePeriod = 0;
-        for (int i = 0; i < total_process; i++) {
+        for (int i = 0; i < totalProcess; i++) {
             System.out.println("Enter arrival time and burst time for process " + (i + 1));
             for (int j = 0; j < 2; j++) {
-                arr_of_process[i][j] = scan.nextInt();
+                arrOfProcess[i][j] = scan.nextInt();
             }
         }
-        completion_time(arr_of_process, total_process, completionTime);
+        completionTime(arrOfProcess, totalProcess, completionTime);
         System.out.println("Completion time for processes = ");
         for (int i : completionTime) {
             System.out.printf(i + " ");
         }
         System.out.println();
-        turn_arround_time(arr_of_process, total_process, completionTime, turnArroundTime);
+        turnArroundTime(arrOfProcess, totalProcess, completionTime, turnArroundTime);
         System.out.println("Turn Arround time for processes = ");
         for (int i : turnArroundTime) {
             System.out.printf(i + " ");
         }
         System.out.println();
-        waiting_time(arr_of_process, total_process, waitingTime, turnArroundTime);
+        waitingTime(arrOfProcess, totalProcess, waitingTime, turnArroundTime);
         System.out.println("Waiting time for processes = ");
         for (int i : waitingTime) {
             System.out.printf(i + " ");
         }
         System.out.println();
-        averageWaitingTime = average_waiting_time(waitingTime, total_process, averageWaitingTime);
+        averageWaitingTime = averageWaitingTime(waitingTime, totalProcess, averageWaitingTime);
         System.out.println("Average Waiting time is = " + averageWaitingTime);
-        maximumWaitingTimePeriod = maximum_waiting_time_period(waitingTime, total_process, maximumWaitingTimePeriod);
+        maximumWaitingTimePeriod = maximumWaitingTimePeriod(waitingTime, totalProcess, maximumWaitingTimePeriod);
         System.out.println("Maximum Waiting time period for process in queue is = " + maximumWaitingTimePeriod);
         scan.close();
     }
