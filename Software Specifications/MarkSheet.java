@@ -66,7 +66,7 @@ public class MarkSheet {
 		float[] grades=new float[totalStudents];
 		System.out.println("Enter grades in range 0 to 100");
 		int flag=0;
-		while(flag<3){
+		while(flag<totalStudents){
 			for (int i = 0; i < totalStudents; i++) {
 				float temp=scan.nextFloat();
 				if (temp<0 || temp>100) {
