@@ -4,15 +4,24 @@ import org.junit.Test;
 public class TestSearch {
 	int[] arr={2,4,5,8,6};
 	int num=5;
+	int num1=6;
 	int low=0;
 	int high=4;
-	int output_index=2;
+	int outputIndex=2;
 	@Test
-	public void evaluate_linear_search(){
-		assertEquals(output_index,Search.linearSearch(arr, num, low, high));
+	public void evaluateLinearSearch(){
+		assertEquals(outputIndex,Search.linearSearch(arr, num, low, high));
 	}
 	@Test
-	public void evaluate_binary_search(){
-		assertEquals(output_index, Search.binarySearch(arr, num, low, high));
+	public void evaluateBinarySearch(){
+		assertEquals(outputIndex, Search.binarySearch(arr, num, low, high));
+	}
+	@Test
+	public void evaluateLinearSearch1(){
+		assertEquals(outputIndex,Search.linearSearch(arr, num1, low, high));
+	}
+	@Test
+	public void evaluateBinarySearch1(){
+		assertEquals(outputIndex, Search.binarySearch(arr, num1, low, high));
 	}
 }

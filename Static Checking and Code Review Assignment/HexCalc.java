@@ -2,32 +2,32 @@ import java.util.Scanner;
 // hexadecimal calculator operations java class
 public class HexCalc {
 	// method to add two hexadecimal numbers
-    static String add(String num1, String num2) {
-        int decimalNum1 = Integer.parseInt(num1, 16);
-        int decimalNum2 = Integer.parseInt(num2, 16);
+    static String add(String num1, String num2, int base) {
+        int decimalNum1 = Integer.parseInt(num1, base);
+        int decimalNum2 = Integer.parseInt(num2, base);
         int sum = decimalNum1 + decimalNum2;
-        return Integer.toHexString(sum);
+        return Integer.toString(sum,base);
     }
     // method to subtract two hexadecimal numbers
-    static String subtract(String num1, String num2) {
-        int decimalNum1 = Integer.parseInt(num1, 16);
-        int decimalNum2 = Integer.parseInt(num2, 16);
+    static String subtract(String num1, String num2,int base) {
+        int decimalNum1 = Integer.parseInt(num1, base);
+        int decimalNum2 = Integer.parseInt(num2, base);
         int subtraction = decimalNum1 - decimalNum2;
-        return Integer.toHexString(subtraction);
+        return Integer.toString(subtraction,base);
     }
     // method to multiply two hexadecimal numbers
-    static String multiply(String num1, String num2) {
-        int decimalNum1 = Integer.parseInt(num1, 16);
-        int decimalNum2 = Integer.parseInt(num2, 16);
+    static String multiply(String num1, String num2,int base) {
+        int decimalNum1 = Integer.parseInt(num1, base);
+        int decimalNum2 = Integer.parseInt(num2, base);
         int multiplication = decimalNum1 * decimalNum2;
-        return Integer.toHexString(multiplication);
+        return Integer.toString(multiplication,base);
     }
     // method to divide two hexadecimal numbers
-    static String divide(String num1, String num2) {
-        int decimalNum1 = Integer.parseInt(num1, 16);
-        int decimalNum2 = Integer.parseInt(num2, 16);
+    static String divide(String num1, String num2,int base) {
+        int decimalNum1 = Integer.parseInt(num1, base);
+        int decimalNum2 = Integer.parseInt(num2, base);
         int division = decimalNum1 / decimalNum2;
-        return Integer.toHexString(division);
+        return Integer.toString(division,base);
     }
     // method to convert hexadecimal to decimal
     static int hexaToDecimal(String hexa) {
@@ -67,30 +67,32 @@ public class HexCalc {
     // method to take user input
     static void takeInput() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter two Hexadecimal numbers");
+        System.out.println("Enter two numbers");
         String num1 = scan.next();
         String num2 = scan.next();
+        System.out.println("Enter base value");
+        int base=scan.nextInt();
         System.out.println(
                 "Enter 1 to add\nEnter 2 to subtract\nEnter 3 to multiply\nEnter 4 to Divide\nEnter 5 to convert hexadecimal to decimal\nEnter 6 to convert decimal to hexadecimal\nEnter 7 to compare both hexa numbers for ==\nEnter 8 to compare both hexa numbers for >\nEnter 9 to compare both hexa numbers for <\nEnter 0 to exit from HaxCalc");
         int operation = scan.nextInt();
         switch (operation) {
             case 1:
-                String sum = add(num1, num2);
+                String sum = add(num1, num2,base);
                 System.out.println(sum);
                 takeInput();
                 break;
             case 2:
-                String sub = subtract(num1, num2);
+                String sub = subtract(num1, num2,base);
                 System.out.println(sub);
                 takeInput();
                 break;
             case 3:
-                String mul = multiply(num1, num2);
+                String mul = multiply(num1, num2,base);
                 System.out.println(mul);
                 takeInput();
                 break;
             case 4:
-                String div = divide(num1, num2);
+                String div = divide(num1, num2,base);
                 System.out.println(div);
                 takeInput();
                 break;

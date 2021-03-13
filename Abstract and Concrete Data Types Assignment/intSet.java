@@ -9,7 +9,7 @@ public final class intSet {
 		return arr.length;
 	}
 	// method to check set is subset of universal set or not
-	private static boolean isSubset(int[] universal_set){
+	private static boolean isSubset(int[] universalSet){
 		System.out.println("Enter total no of elements in your set = ");
 		int n2=scan.nextInt();
 		int set1[]=new int[n2];
@@ -18,11 +18,11 @@ public final class intSet {
 			set1[i]=scan.nextInt();
 		}
 		for(int i=0;i<set1.length;i++){
-			for (int j = 0; j < universal_set.length; j++) {
-				if(set1[i]==universal_set[j]){
+			for (int j = 0; j < universalSet.length; j++) {
+				if(set1[i]==universalSet[j]){
 					break;
 				}
-				if(j==universal_set.length-1) {
+				if(j==universalSet.length-1) {
 					return false;
 				}
 			}
@@ -56,18 +56,18 @@ public final class intSet {
 		for (int i = 0; i < n2; i++) {
 			set2[i]=scan.nextInt();
 		}
-		HashSet<Integer> union_set=new HashSet<>();
-		union_set.addAll(Arrays.asList(set1));
-		union_set.addAll(Arrays.asList(set2));
+		HashSet<Integer> unionSet=new HashSet<>();
+		unionSet.addAll(Arrays.asList(set1));
+		unionSet.addAll(Arrays.asList(set2));
 		Integer[] union={};
-		union=union_set.toArray(union);
+		union=unionSet.toArray(union);
 		return union;
 	}
 	// method to get complement set of a set
 	private static Integer[] getComplement(int[] universal_set){
-		Integer[] uni_set=new Integer[universal_set.length];
+		Integer[] uniSet=new Integer[universal_set.length];
 		for (int i = 0; i < universal_set.length; i++) {
-			uni_set[i]=Integer.valueOf(universal_set[i]);
+			uniSet[i]=Integer.valueOf(universal_set[i]);
 		}
 		System.out.println("Enter total no of elements of your set = ");
 		int n1=scan.nextInt();
@@ -76,11 +76,11 @@ public final class intSet {
 		for (int i = 0; i < n1; i++) {
 			set1[i]=scan.nextInt();
 		}
-		HashSet<Integer> complement_set=new HashSet<>();
-		complement_set.addAll(Arrays.asList(uni_set));
-		complement_set.removeAll(Arrays.asList(set1));
+		HashSet<Integer> complementSet=new HashSet<>();
+		complementSet.addAll(Arrays.asList(uniSet));
+		complementSet.removeAll(Arrays.asList(set1));
 		Integer[] complement={};
-		complement=complement_set.toArray(complement);
+		complement=complementSet.toArray(complement);
 		return complement;
 	}
 	// method to take user input and perform operations on set
@@ -103,8 +103,8 @@ public final class intSet {
 			}
 			break;
 		case 2:
-			int size_of_set=size(universal_set);
-			System.out.println("The size of set is = "+size_of_set);
+			int sizeOfSet=size(universal_set);
+			System.out.println("The size of set is = "+sizeOfSet);
 			break;
 		case 3:
 			boolean subset=isSubset(universal_set);
@@ -115,17 +115,17 @@ public final class intSet {
 			}
 			break;
 		case 4:
-			Integer[] complement_set=getComplement(universal_set);
+			Integer[] complementSet=getComplement(universal_set);
 			System.out.println("Complement of the set is = ");
-			for (int i : complement_set) {
+			for (int i : complementSet) {
 				System.out.print(i+ " ");
 			}
 			System.out.println();
 			break;
 		case 5:
-			Integer[] union_set=union();
+			Integer[] unionSet=union();
 			System.out.println("Union of the sets is = ");
-			for (int i : union_set) {
+			for (int i : unionSet) {
 				System.out.print(i+" ");
 			}
 			System.out.println();
@@ -143,11 +143,11 @@ public final class intSet {
 	public static void main(String[] args) {
 		System.out.println("Enter total no of elements in Universal set = ");
 		int n=scan.nextInt();
-		int universal_set[] = new int[n];
+		int universalSet[] = new int[n];
 		for(int i=0;i<n;i++){
-			universal_set[i]=i+1;
+			universalSet[i]=i+1;
 		}
-		operations(universal_set);
+		operations(universalSet);
 		scan.close();
 	}
 }

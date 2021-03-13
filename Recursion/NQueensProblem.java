@@ -4,11 +4,11 @@ import java.util.Scanner;
 // Java class NQueensProblem
 public class NQueensProblem {
 	public int board[][];
-	public int num_of_queens;
+	public int numOfQueens;
 	// constructor to initialize board and number of queens
-	public NQueensProblem(int size_of_board) {
-		board=new int[size_of_board][size_of_board];
-		num_of_queens=size_of_board;
+	public NQueensProblem(int sizeOfBoard) {
+		board=new int[sizeOfBoard][sizeOfBoard];
+		numOfQueens=sizeOfBoard;
 	}
 	/**
 	 * Check if any queen can kill to another or not.
@@ -18,13 +18,13 @@ public class NQueensProblem {
 	 * @return false, if queens are safe
 	 */
 	public boolean isKilling(int row,int y){
-		for (int i = 0; i < num_of_queens; i++) {
+		for (int i = 0; i < numOfQueens; i++) {
 			if (board[row][i]==1 || board[i][y]==1) {
 				return true;
 			}
 		}
-		for (int i = 0; i < num_of_queens; i++) {
-			for (int j = 0; j < num_of_queens; j++) {
+		for (int i = 0; i < numOfQueens; i++) {
+			for (int j = 0; j < numOfQueens; j++) {
 				if (row-y==i-j) {
 					if(board[i][j]==1){
 						return true;
@@ -46,14 +46,14 @@ public class NQueensProblem {
 	 * @return true, if queens can be placed
 	 * @return false, if queens can't be placed in matrix
 	 */
-	public boolean findQueens(int size_of_board,int row){
-		if(size_of_board==0){
+	public boolean findQueens(int sizeOfBoard,int row){
+		if(sizeOfBoard==0){
 			return true;
 		}
-		for (int j = 0; j < num_of_queens; j++) {
+		for (int j = 0; j < numOfQueens; j++) {
 			if(!isKilling(row, j)){
 				board[row][j]=1;
-				if (findQueens(size_of_board-1, row+1)) {
+				if (findQueens(sizeOfBoard-1, row+1)) {
 					return true;
 				}else {
 					board[row][j]=0;
@@ -66,12 +66,12 @@ public class NQueensProblem {
 	public static void main(String[] args) {
 		Scanner scan=new Scanner(System.in);
 		System.out.println("Enter the size of board (for 4x4 enter 4)");
-		int size_of_board=scan.nextInt();
-		NQueensProblem obj=new NQueensProblem(size_of_board);
-		if(obj.findQueens(size_of_board,0)){
+		int sizeOfBoard=scan.nextInt();
+		NQueensProblem obj=new NQueensProblem(sizeOfBoard);
+		if(obj.findQueens(sizeOfBoard,0)){
 			System.out.println("Queens placement is possible");
-			for (int i = 0; i < size_of_board; i++) {
-				for (int j = 0; j < size_of_board; j++) {
+			for (int i = 0; i < sizeOfBoard; i++) {
+				for (int j = 0; j < sizeOfBoard; j++) {
 					System.out.print(obj.board[i][j]+" ");
 				}
 				System.out.println();

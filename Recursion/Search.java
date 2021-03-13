@@ -56,18 +56,18 @@ public class Search {
 		System.out.println("Enter which element you want to search");
 		int num=scan.nextInt();
 		System.out.println("Using Linear Search");
-		int index_of_element=linearSearch(arr,num,0,n-1);
-		if(index_of_element==-1){
+		int indexOfElement=linearSearch(arr,num,0,n-1);
+		if(indexOfElement==-1){
 			System.out.println("Element not found");
 		}else{
-			System.out.println("Element found at index "+index_of_element);
+			System.out.println("Element found at index "+indexOfElement);
 		}
 		System.out.println("Using Binary Search");
-		int index_of_elem=binarySearch(arr,num,0,n-1);
-		if(index_of_elem==-1){
+		int indexOfElem=binarySearch(arr,num,0,n-1);
+		if(indexOfElem==-1){
 			System.out.println("Element not found");
 		}else{
-			System.out.println("Element found at index "+index_of_elem);
+			System.out.println("Element found at index "+indexOfElem);
 		}
 		scan.close();
 	}

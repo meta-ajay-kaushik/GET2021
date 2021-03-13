@@ -53,7 +53,7 @@ public final class Poly {
 		System.out.println();
 	}
 	//method to find degree of the polynomial equation
-	private static int find_degree(int[] arr){
+	private static int findDegree(int[] arr){
 		printPoly(arr, arr.length);
 		return arr.length-1;
 	}
@@ -82,7 +82,7 @@ public final class Poly {
 			System.out.println("The value of polynomial is = "+result);
 			break;
 		case 2:
-			int degree = find_degree(arr);
+			int degree = findDegree(arr);
 			System.out.println("Degree of the polynomial is = "+degree);
 			break;
 		case 3:

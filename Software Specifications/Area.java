@@ -50,7 +50,7 @@ public class Area {
 		int input=scan.nextInt();
 		switch (input) {
 		case 1:
-			System.out.println("Enter width of Triangle");
+		    System.out.println("Enter width of Triangle");
 			Double widthOfTriangle=scan.nextDouble();
 			System.out.println("Enter height of Triangle");
 			Double heightOfTriangle=scan.nextDouble();

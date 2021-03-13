@@ -56,14 +56,23 @@ public class StringOperations {
 	 */
 	public static void changeCaseOfCharacters(String str){
 		StringBuffer newString=new StringBuffer(str);
-		for (int i = 0; i < str.length(); i++) {
-			if (Character.isLowerCase(str.charAt(i))) {
-				newString.setCharAt(i, Character.toUpperCase(str.charAt(i)));
+//		for (int i = 0; i < str.length(); i++) {
+//			if (Character.isLowerCase(str.charAt(i))) {
+//				newString.setCharAt(i, Character.toUpperCase(str.charAt(i)));
+//			}
+//			else if (Character.isUpperCase(str.charAt(i))) {
+//				newString.setCharAt(i, Character.toLowerCase(str.charAt(i)));
+//			}
+//		}
+		for(int i=0;i<str.length();i++)
+	    {
+	        if(str.charAt(i)>='A' && str.charAt(i)<='Z')
+	        { 
+	        	newString.setCharAt(i, (char)((int)str.charAt(i)+32));
+	        }else if (str.charAt(i)>='a' && str.charAt(i)<='z') {
+	        	newString.setCharAt(i, (char)((int)str.charAt(i)-32));
 			}
-			else if (Character.isUpperCase(str.charAt(i))) {
-				newString.setCharAt(i, Character.toLowerCase(str.charAt(i)));
-			}
-		}
+	    }
 		System.out.println("String after replace case of characters is\n"+newString);
 	}
 	/**
@@ -75,20 +84,20 @@ public class StringOperations {
 		String largestWord="";
 		String word="";
 		String[] words=new String[20];
-		int length=0;
+		int index=0;
 		str=str+" ";
 		for (int i = 0; i < str.length(); i++) {
 			if(str.charAt(i)!=' '){
 				word+=str.charAt(i);
 			}
 			else{
-				words[length]=word;
-				length++;
+				words[index]=word;
+				index++;
 				word="";
 			}
 		}
 		largestWord=words[0];
-		for (int i = 0; i <length; i++) {
+		for (int i = 0; i <index; i++) {
 			if(largestWord.length()<=words[i].length()){
 				largestWord=words[i];
 			}

@@ -10,10 +10,10 @@ public class TestLcmHcf {
 	int hcf=5;
 	@Test
 	public void evaluate_LCM(){
-		assertEquals(lcm, LcmHcf.find_lcm(num1, num2));
+		assertEquals(lcm, LcmHcf.findLcm(num1, num2));
 	}
 	@Test
 	public void evaluate_HCF(){
-		assertEquals(hcf, LcmHcf.find_hcf(num1, num2));
+		assertEquals(hcf, LcmHcf.findHcf(num1, num2));
 	}
 }
