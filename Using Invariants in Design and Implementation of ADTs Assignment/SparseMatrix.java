@@ -1,13 +1,13 @@
 import java.util.Scanner;
 // sparse matrix java class
-public class sparse_matrix {
+public class SparseMatrix {
     private int max = 100;
     private int arr[][] = new int[max][3];
     private int row, col;
     private int length;
     static Scanner scan = new Scanner(System.in);
     // sparse matrix constructor
-    private sparse_matrix(int r, int c) {
+    private SparseMatrix(int r, int c) {
         row = r;
         col = c;
         length = 0;
@@ -27,12 +27,12 @@ public class sparse_matrix {
         }
     }
     // method to check a sparse matrix is symmetrical or not
-    private static boolean isSymmetric(sparse_matrix s1){
+    private static boolean isSymmetric(SparseMatrix s1){
     	if(s1.row!=s1.col){
     		return false;
     	}else{
     		// call transpose method to find transpose of the matrix
-    		sparse_matrix transpose = s1.transpose();
+    		SparseMatrix transpose = s1.transpose();
     		int i = 0;
     		while(i<s1.length){
     			if(s1.arr[i][0]==transpose.arr[i][0]
@@ -50,12 +50,12 @@ public class sparse_matrix {
     	return false;
     }
     // method to add two sparse matrix
-    private void add(sparse_matrix s2) {
+    private void add(SparseMatrix s2) {
         if (row != s2.row || col != s2.col) {
             System.out.println("Matrices can't be added");
         } else {
             int i = 0, j = 0;
-            sparse_matrix output = new sparse_matrix(row, col);
+            SparseMatrix output = new SparseMatrix(row, col);
             while (i < length && j < s2.length) {
                 if (arr[i][0] > s2.arr[j][0]
                         || (arr[i][0] == s2.arr[j][0] && arr[i][1] > s2.arr[j][1])) {
@@ -81,8 +81,8 @@ public class sparse_matrix {
         }
     }
     // method to find transpose of a sparse matrix
-    private sparse_matrix transpose() {
-        sparse_matrix output = new sparse_matrix(col, row);
+    private SparseMatrix transpose() {
+        SparseMatrix output = new SparseMatrix(col, row);
         output.length = length;
         int count[] = new int[col + 1];
         for (int i = 1; i <= col; i++)
@@ -102,28 +102,28 @@ public class sparse_matrix {
         return output;
     }
     // method to multiply two sparse matrix
-    private void multiply(sparse_matrix s2) {
+    private void multiply(SparseMatrix s2) {
         if (col != s2.row) {
             System.out.println("Can't multiply, " + "Invalid dimensions");
             return;
         }
         s2 = s2.transpose();
         int i, j;
-        sparse_matrix result = new sparse_matrix(row, s2.row);
+        SparseMatrix result = new SparseMatrix(row, s2.row);
         for (i = 0; i < length;) {
             int r = arr[i][0];
             for (j = 0; j < s2.length;) {
                 int c = s2.arr[j][0];
-                int temp_s1 = i;
-                int temp_s2 = j;
+                int tempS1 = i;
+                int tempS2 = j;
                 int sum = 0;
-                while (temp_s1 < length && arr[temp_s1][0] == r && temp_s2 < s2.length && s2.arr[temp_s2][0] == c) {
-                    if (arr[temp_s1][1] < s2.arr[temp_s2][1])
-                        temp_s1++;
-                    else if (arr[temp_s1][1] > s2.arr[temp_s2][1])
-                        temp_s2++;
+                while (tempS1 < length && arr[tempS1][0] == r && tempS2 < s2.length && s2.arr[tempS2][0] == c) {
+                    if (arr[tempS1][1] < s2.arr[tempS2][1])
+                        tempS1++;
+                    else if (arr[tempS1][1] > s2.arr[tempS2][1])
+                        tempS2++;
                     else
-                        sum += arr[temp_s1++][2] * s2.arr[temp_s2++][2];
+                        sum += arr[tempS1++][2] * s2.arr[tempS2++][2];
                 }
                 if (sum != 0)
                     result.insert(r, c, sum);
@@ -136,13 +136,13 @@ public class sparse_matrix {
         result.print();
     }
     // method to take input from user and perform operations
-    private static void operations(sparse_matrix s1) {
+    private static void operations(SparseMatrix s1) {
         System.out.println(
                 "Enter 1 to transpose\nEnter 2 to check symmetrical or not\nEnter 3 to add two matrices\nEnter 4 to multiply two matrices\nEnter 5 to exit.");
         int input = scan.nextInt();
         switch (input) {
             case 1:
-                sparse_matrix transpose = s1.transpose();
+                SparseMatrix transpose = s1.transpose();
                 transpose.print();
                 break;
             case 2:
@@ -155,12 +155,12 @@ public class sparse_matrix {
             	}
                 break;
             case 3:
-                sparse_matrix s3 = take_sparse_matrix();
+                SparseMatrix s3 = takeSparseMatrix();
                 System.out.println("Addition: ");
                 s1.add(s3);
                 break;
             case 4:
-                sparse_matrix s2 = take_sparse_matrix();
+                SparseMatrix s2 = takeSparseMatrix();
                 System.out.println("\nMultiplication: ");
                 s1.multiply(s2);
                 break;
@@ -174,38 +174,38 @@ public class sparse_matrix {
         operations(s1);
     }
     // method to take input of a sparse matrix
-    private static sparse_matrix take_sparse_matrix() {
+    private static SparseMatrix takeSparseMatrix() {
         System.out.println("Enter rows of matrix");
         int row = scan.nextInt();
         if (row < 1) {
             System.out.println("Wrong input, try again");
-            take_sparse_matrix();
+            takeSparseMatrix();
         }
         System.out.println("Enter columns of matrix");
         int col = scan.nextInt();
         if (col < 1) {
             System.out.println("Wrong input, try again");
-            take_sparse_matrix();
+            takeSparseMatrix();
         }
-        sparse_matrix s1 = new sparse_matrix(row, col);
+        SparseMatrix s1 = new SparseMatrix(row, col);
         System.out.println("How much non zero elements you want to insert.");
         int y = scan.nextInt();
         if (y < 1 || y > row * col) {
             System.out.println(y + " elements can't be inserted, try again.");
-            take_sparse_matrix();
+            takeSparseMatrix();
         } else {
             for (int i = 0; i < y; i++) {
                 System.out.println("Enter row index");
                 int r = scan.nextInt();
                 if (r < 1 || r > row) {
                     System.out.println("Row not present.");
-                    take_sparse_matrix();
+                    takeSparseMatrix();
                 } else {
                     System.out.println("Enter col index");
                     int c = scan.nextInt();
                     if (c < 1 || c > col) {
                         System.out.println("Column not present.");
-                        take_sparse_matrix();
+                        takeSparseMatrix();
                     } else {
                         System.out.println("Enter value");
                         int v = scan.nextInt();
@@ -219,7 +219,7 @@ public class sparse_matrix {
     }
     // main method
     public static void main(String args[]) {
-        sparse_matrix s1 = take_sparse_matrix();
+        SparseMatrix s1 = takeSparseMatrix();
         operations(s1);
         scan.close();
     }
