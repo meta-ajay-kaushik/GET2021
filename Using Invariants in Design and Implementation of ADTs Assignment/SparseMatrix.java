@@ -145,14 +145,14 @@ public class SparseMatrix {
     // method to take input from user and perform operations
     private static void operations(SparseMatrix s1) {
         System.out.println(
-                "Enter 1 to transpose\nEnter 2 to check symmetrical or not\nEnter 3 to add two matrices\nEnter 4 to multiply two matrices\nEnter 5 to exit.");
+                "Enter 1 to transpose\nEnter 2 to add two matrices\nEnter 3 to multiply two matrices\nEnter 4 to check symmetrical or not\nEnter 5 to exit.");
         int input = scan.nextInt();
         switch (input) {
             case 1:
                 SparseMatrix transpose = s1.transpose();
                 transpose.print();
                 break;
-            case 2:
+            case 4:
             	boolean output=isSymmetric(s1);
             	if(output==true){
             		System.out.println("Matrix is Symmetric");
@@ -161,12 +161,12 @@ public class SparseMatrix {
             		System.out.println("Matrix is not Symmetric");
             	}
                 break;
-            case 3:
+            case 2:
                 SparseMatrix s3 = takeSparseMatrix();
                 System.out.println("Addition: ");
                 s1.add(s3);
                 break;
-            case 4:
+            case 3:
                 SparseMatrix s2 = takeSparseMatrix();
                 System.out.println("\nMultiplication: ");
                 s1.multiply(s2);
