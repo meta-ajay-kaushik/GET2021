@@ -99,6 +99,13 @@ public class SparseMatrix {
             output.arr[rpos][1] = arr[i][0];
             output.arr[rpos][2] = arr[i][2];
         }
+//        int index=0;
+//        for (int i = 0; i < length; i++) {
+//            int rpos = index++;
+//            output.arr[rpos][0] = arr[i][1];
+//            output.arr[rpos][1] = arr[i][0];
+//            output.arr[rpos][2] = arr[i][2];
+//        }
         return output;
     }
     // method to multiply two sparse matrix
@@ -190,30 +197,30 @@ public class SparseMatrix {
         SparseMatrix s1 = new SparseMatrix(row, col);
         System.out.println("How much non zero elements you want to insert.");
         int y = scan.nextInt();
+        int flag=0;
         if (y < 1 || y > row * col) {
             System.out.println(y + " elements can't be inserted, try again.");
             takeSparseMatrix();
         } else {
-            for (int i = 0; i < y; i++) {
+        	while(flag!=y){        	
                 System.out.println("Enter row index");
                 int r = scan.nextInt();
                 if (r < 1 || r > row) {
                     System.out.println("Row not present.");
-                    takeSparseMatrix();
                 } else {
                     System.out.println("Enter col index");
                     int c = scan.nextInt();
                     if (c < 1 || c > col) {
                         System.out.println("Column not present.");
-                        takeSparseMatrix();
                     } else {
                         System.out.println("Enter value");
                         int v = scan.nextInt();
+                        flag++;
                         s1.insert(r, c, v);
                         s1.print();
                     }
                 }
-            }
+        	}
         }
         return s1;
     }
