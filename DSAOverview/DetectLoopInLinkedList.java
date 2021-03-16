@@ -1,4 +1,5 @@
 package DSAOverview;
+import java.util.HashSet;
 // Java class of Loop detection
 public class DetectLoopInLinkedList {
 	public Node head;
@@ -9,6 +10,7 @@ public class DetectLoopInLinkedList {
 		// Node class constructor
 		public Node(int val) {
 			this.value=val;
+			next=null;
 		}
 	}
 	// method to add node to the linked list
@@ -33,14 +35,13 @@ public class DetectLoopInLinkedList {
 	}
 	// method to find loop in the list
 	public boolean findLoop(){
-		Node temp1=head;
-		Node temp2=head;
-		while (temp1.next!=null && temp1!=null) {
-			temp2=temp2.next;
-			temp1=temp1.next.next;								
-			if(temp1==temp2){
+		HashSet<Node> s=new HashSet<Node>();
+		while(head!=null){
+			if(s.contains(head)){
 				return true;
 			}
+			s.add(head);
+			head=head.next;
 		}
 		return false;
 	}

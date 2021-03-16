@@ -9,6 +9,7 @@ public class RotateLinkedList {
 		// Node class constructor
 		public Node(int val) {
 			this.value=val;
+			next=null;
 		}
 	}
 	// Method to add node to linked list
@@ -69,6 +70,7 @@ public class RotateLinkedList {
 		list.addToList(new Node(7));
 		list.printList();
 		list.shiftSubList(2, 5, 2);
+		System.out.println("List after shift sub list");
 		list.printList();
 	}
 }

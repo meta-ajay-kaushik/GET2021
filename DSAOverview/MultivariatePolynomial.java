@@ -17,6 +17,7 @@ public class MultivariatePolynomial {
 			public Node(char variable, int degree) {
 				this.variable = variable;
 				this.degree = degree;
+				next=null;
 			}
 		}
 		// LinkedList class constructor
