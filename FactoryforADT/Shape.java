@@ -11,7 +11,7 @@ class Point
 		x=a;
 		y=b;
 	}
-} 
+}
 // Shape interface
 interface Shape
 {
@@ -59,16 +59,16 @@ class Triangle implements Shape
 			v2=new Point(p.x+base,p.y);
 			v3=new Point(p.x,p.y+height);
 		    float d1, d2, d3;
-		    boolean has_neg, has_pos;
+		    boolean hasNeg, hasPos;
 
 		    d1 = sign(pt, v1, v2);
 		    d2 = sign(pt, v2, v3);
 		    d3 = sign(pt, v3, v1);
 
-		    has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
-		    has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+		    hasNeg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+		    hasPos = (d1 > 0) || (d2 > 0) || (d3 > 0);
 
-		    return !(has_neg && has_pos);
+		    return !(hasNeg && hasPos);
 	}
 	private float sign (Point p1, Point p2, Point p3)
 	{

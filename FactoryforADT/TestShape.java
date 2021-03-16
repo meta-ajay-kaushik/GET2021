@@ -30,7 +30,7 @@ public class TestShape {
 	}
 	// Test the all shapes Origins, Areas, perimeters and they are created or not
 	@Test
-	public void testSortOrigin_sort_SortedShapeArray()
+	public void testSortOriginSortSortedShapeArray()
 	{
 		add();
 		ArrayList<Shape> list=s1.sort("Origin");
@@ -45,7 +45,7 @@ public class TestShape {
 	}
 	// Test all the shapes Area is right or not.
 	@Test
-	public void testSortArea_sort_SortedShapeArray()
+	public void testSortAreaSortSortedShapeArray()
 	{
 		ArrayList<Shape> list=s1.sort("Area");
 		assertEquals(12,list.get(0).getArea());
