@@ -10,7 +10,7 @@ public class InfixFullParentEx implements Stack{
         MyStack<String> stack = new MyStack<String>(exps.length());
 //        break the expression into tokens
         // create token
-        StringTokenizer tokens = new StringTokenizer(exps, "{}()*/+-<><=>=||==&&!=", true);
+        StringTokenizer tokens = new StringTokenizer(exps, "{ } ( ) * / + - < > <= >= || == && !=", true);
         while(tokens.hasMoreTokens()){
             String tkn = tokens.nextToken();
             /**read each token and take action**/
@@ -54,6 +54,10 @@ public class InfixFullParentEx implements Stack{
                         result = op1>=op2?1:0;
                     } else if(oprnd.equals("<=")){
                         result = op1<=op2?1:0;
+                    } else if(oprnd.equals("==")){
+                        result = op1==op2?1:0;
+                    } else if(oprnd.equals("!=")){
+                        result = op1!=op2?1:0;
                     }
                     /**push the result to the stack**/
                     stack.push(result+"");
@@ -74,7 +78,7 @@ public class InfixFullParentEx implements Stack{
     // main method
     public static void main(String a[]){
     	InfixFullParentEx obj=new InfixFullParentEx();
-        String expr = "((( 3 < 4 ) + (4 * 3)) / (11 - 9))";
+        String expr = "( ( ( 3 < 4 ) + ( 4 * 3 ) ) / ( 11 - 9 ) )";
         System.out.println("Expression: "+expr);
         System.out.println("Final Result: "+obj.evaluateInfix(expr));
     }
@@ -85,8 +89,9 @@ class MyStack<T extends Object> {
     private T[] stackArr;
     private int top;
     // stack constructor
+   
     @SuppressWarnings("unchecked")
-    public MyStack(int size) {
+	public MyStack(int size) {
         this.stackSize = size;
         this.stackArr = (T[]) new Object[stackSize];
         this.top = -1;

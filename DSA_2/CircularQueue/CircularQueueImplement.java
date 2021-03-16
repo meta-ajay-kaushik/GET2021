@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class CircularQueueImplement {
 	// main method
 	public static void main(String[] args) {
-		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter Size of Circular Queue : ");
 		int maxSize = scan.nextInt();
@@ -17,12 +16,13 @@ public class CircularQueueImplement {
 		object.enqueue(22);
 		object.enqueue(3);
 		System.out.println("Removing elements from queue : ");
-		for(int index=0;index<7;index++) {
+		for(int index=0;index<6;index++) {
 			int data = object.dequeue();
 			if(data == Integer.MIN_VALUE)
 				System.out.println("Queue underflow..");
 			else
 				System.out.println(data+" is deleted from queue");
 		}
+		scan.close();
 	}
 }
