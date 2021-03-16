@@ -12,6 +12,39 @@ public class SparseMatrix {
         col = c;
         length = 0;
     }
+    private void sortArr(SparseMatrix s1){
+    	for (int i = 0; i < s1.length; i++) {
+			for (int j = i+1; j < s1.length; j++) {
+    		    if(s1.arr[i][0]>s1.arr[j][0]){
+    		    	int temp1 = s1.arr[i][0];
+    		    	int temp2 = s1.arr[i][1];
+    		    	int temp3 = s1.arr[i][2];
+    		        s1.arr[i][0]=s1.arr[j][0];
+    		        s1.arr[i][1]=s1.arr[j][1];
+    		        s1.arr[i][2]=s1.arr[j][2];
+    		        s1.arr[j][0]=temp1;
+    		        s1.arr[j][1]=temp2;
+    		        s1.arr[j][2]=temp3;
+    		    }
+			}
+		}
+    	for (int i = 0; i < s1.length; i++) {
+			for (int j = i+1; j < s1.length; j++) {
+    		    if(s1.arr[i][1]>s1.arr[j][1] && s1.arr[i][0]==s1.arr[j][0]){
+    		    	int temp1 = s1.arr[i][0];
+    		    	int temp2 = s1.arr[i][1];
+    		    	int temp3 = s1.arr[i][2];
+    		        s1.arr[i][0]=s1.arr[j][0];
+    		        s1.arr[i][1]=s1.arr[j][1];
+    		        s1.arr[i][2]=s1.arr[j][2];
+    		        s1.arr[j][0]=temp1;
+    		        s1.arr[j][1]=temp2;
+    		        s1.arr[j][2]=temp3;
+    		    }
+			}
+		}
+    	
+    }
     // method to insert item into sparse matrix
     private void insert(int r, int c, int val) {
         arr[length][0] = r;
@@ -28,11 +61,15 @@ public class SparseMatrix {
     }
     // method to check a sparse matrix is symmetrical or not
     private static boolean isSymmetric(SparseMatrix s1){
+    	s1.sortArr(s1);
+//    	s1.print();
     	if(s1.row!=s1.col){
     		return false;
     	}else{
     		// call transpose method to find transpose of the matrix
     		SparseMatrix transpose = s1.transpose();
+    		transpose.sortArr(transpose);
+//    		transpose.print();
     		int i = 0;
     		while(i<s1.length){
     			if(s1.arr[i][0]==transpose.arr[i][0]
@@ -84,28 +121,13 @@ public class SparseMatrix {
     private SparseMatrix transpose() {
         SparseMatrix output = new SparseMatrix(col, row);
         output.length = length;
-        int count[] = new int[col + 1];
-        for (int i = 1; i <= col; i++)
-            count[i] = 0;
-        for (int i = 0; i < length; i++)
-            count[arr[i][1]]++;
-        int[] index = new int[col + 1];
-        index[1] = 0;
-        for (int i = 2; i <= col; i++)
-            index[i] = index[i - 1] + count[i - 1];
+        int index=0;
         for (int i = 0; i < length; i++) {
-            int rpos = index[arr[i][1]]++;
+            int rpos = index++;
             output.arr[rpos][0] = arr[i][1];
             output.arr[rpos][1] = arr[i][0];
             output.arr[rpos][2] = arr[i][2];
         }
-//        int index=0;
-//        for (int i = 0; i < length; i++) {
-//            int rpos = index++;
-//            output.arr[rpos][0] = arr[i][1];
-//            output.arr[rpos][1] = arr[i][0];
-//            output.arr[rpos][2] = arr[i][2];
-//        }
         return output;
     }
     // method to multiply two sparse matrix
