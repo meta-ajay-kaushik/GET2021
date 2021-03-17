@@ -1,0 +1,46 @@
+Constraints of storeFront - 
+
+(1) Product Table-
+productID (primary key)
+categoryID (foreign key)
+productName,productID,stokes,price (NOT NULL)
+
+(2) user Table-
+userID (primary key)
+emailID, password (NOT NULL)
+
+(3) userName Table-
+userID (foreign key)
+userID (NOT NULL)
+
+(4) contactNumber Table-
+userID (foreign key)
+userID, contactNo (NOT NULL)
+
+(5) userAddress Table-
+userID (foreign key)
+userID, plotno, pinCode,State (NOT NULL)
+
+(6) category Table-
+categoryID (primary Key)
+categoryID (NOT NULL)
+
+(7) productImages Table-
+productID (foreign key)
+imageSrc (Default NULL)
+productID, contactNo (NOT NULL)
+
+(8) cart Table-
+userID,productID (foreign key)
+totalPrice (Default 0)
+productID, userID,quantity contactNo (NOT NULL)
+
+(9) orders Table-
+orderID (primary key)
+userID, productID (foreign key)
+orderID,shippingAddress,totalBill, userID, productID (NOT NULL)
+
+(10) status Table-
+orderID, productID (foreign key)
+
+Use FOREIGN_KEY_CHECKS to delete the table.
