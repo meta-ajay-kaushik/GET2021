@@ -1,9 +1,28 @@
+create table productCategories(
+productID int NOT NULL,
+categoryID varchar(20) NOT NULL
+);
+/*
+drop table productCategories;*/
+insert into productCategories values(1,1);
+insert into productCategories values(1,3);
+insert into productCategories values(2,1);
+insert into productCategories values(2,3);
+insert into productCategories values(3,1);
+insert into productCategories values(4,2);
+insert into productCategories values(5,2);
+insert into productCategories values(6,1);
+insert into productCategories values(6,2);
+select * from productCategories;
+select * from product;
+select * from category;
+
 /* question2 */
 /* query1 */
-select product.productID,product.productName,COUNT(category.categoryID) as categoryCount 
-from product INNER JOIN category ON product.categoryID=category.categoryID
-GROUP BY category.parentID HAVING Count(categoryCount) > 1;
-/*select * from product;*/
+
+select pc.productID,p.productName from productCategories pc left join product p on
+p.productID=pc.productID group by pc.productID having count(pc.categoryID)>1;
+
 
 /* query2 */
 SELECT '0 - 100' as 'Range in Rs.', count(product.productID) AS Count FROM product WHERE product.price BETWEEN 0 AND 100
@@ -14,10 +33,10 @@ SELECT 'Above 500' as 'Range in Rs.', count(product.productID) AS Count FROM pro
 
 
 /* query3 */
-SELECT c.categoryID,c.categoryName,COUNT(*) AS productCount
-FROM category c INNER JOIN product pc ON c.categoryID=pc.categoryID
-GROUP BY pc.categoryID;
 
+select c.categoryID,c.categoryName,count(pc.categoryID) as productCount from category c left join 
+productCategories pc on
+pc.categoryID=c.categoryID group by c.CategoryID;
 
 
 
@@ -50,14 +69,17 @@ UPDATE product JOIN orders ON product.productID=orders.productID
 SET product.statusOfProduct='inactive' where DATEDIFF(CURDATE(),orders.orderDate) >=90;
 select * from product;
 
+
+
+
+
 /*query6 */
-/* Category must be Parent */ 
 SELECT product.productID AS ID,
     product.productName AS Title
     FROM product WHERE product.categoryID IN(
-    SELECT categoryID AS ID FROM category 
-    WHERE parentID = (SELECT categoryID 
-    FROM category WHERE categoryName='sports')
+    SELECT categoryID AS ID FROM productCategories 
+    WHERE categoryID = (SELECT categoryID 
+    FROM category WHERE categoryName='cloths')
 );
 
 
