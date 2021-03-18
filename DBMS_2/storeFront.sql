@@ -38,6 +38,7 @@ create table product(
     price INT NOT NULL,
     stocks INT NOT NULL,
     categoryID INT,
+    statusOfProduct VARCHAR(20),
     description VARCHAR(100),
     FOREIGN KEY(categoryID) REFERENCES category(categoryID)
 );
@@ -86,6 +87,7 @@ create table product(
     price INT NOT NULL,
     stocks INT NOT NULL,
     categoryID INT,
+    statusOfProduct VARCHAR(20),
     description VARCHAR(100),
     FOREIGN KEY(categoryID) REFERENCES category(categoryID)
 );
