@@ -13,7 +13,7 @@ public class Query {
     }
     public static String getUpdateProductStatusQuery() {
         String query = "delete from product " + "where productID IN(select orders.productID from orders "
-                + "WHERE TIMESTAMPDIFF(YEAR,orders.orderDate,CURDATE())<=1)";
+                + "WHERE TIMESTAMPDIFF(YEAR,orders.orderDate,CURDATE())>=1)";
         return query;
     }
     public static String getTopCategoryDetails() {
