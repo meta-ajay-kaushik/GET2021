@@ -17,8 +17,8 @@ public class Query {
         return query;
     }
     public static String getTopCategoryDetails() {
-        String query = "select c.categoryName,COUNT(c.categoryID) AS numberOfChildren "
-                + "FROM category c LEFT JOIN category cat ON c.categoryID=cat.parentID WHERE c.parentID is NULL "
+        String query = "select c.categoryName,COUNT(cat.parentID) AS numberOfChildren "
+                + "FROM category c LEFT JOIN category cat ON cat.parentID=c.categoryID WHERE c.parentID is NULL "
                 + "GROUP BY c.categoryName ORDER BY c.categoryName";
         return query;
     }
