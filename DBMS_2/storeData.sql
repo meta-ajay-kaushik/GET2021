@@ -58,13 +58,35 @@ INSERT INTO cart(productID,userID,quantity,totalPrice) VALUES(3,2,2,4000);
 INSERT INTO cart(productID,userID,quantity,totalPrice) VALUES(4,3,2,400);
 INSERT INTO cart(productID,userID,quantity,totalPrice) VALUES(5,3,10,12900);
 INSERT INTO orders(orderID,shippingAddress,orderDate,deliveryDate,totalBill,userID,productID) values(1,'xyz','2020-5-25','2020-5-30',1150,1,1);
-INSERT INTO orders(orderID,shippingAddress,orderDate,deliveryDate,totalBill,userID,productID) values(2,'abc','2020-9-12','2020-9-18',4000,2,2);
-INSERT INTO orders(orderID,shippingAddress,orderDate,deliveryDate,totalBill,userID,productID) values(3,'any','2020-6-15','2020-6-22',12900,3,3);
+INSERT INTO orders(orderID,shippingAddress,orderDate,deliveryDate,totalBill,userID,productID) values(2,'abc','2019-9-12','2019-9-18',4000,2,2);
+INSERT INTO orders(orderID,shippingAddress,orderDate,deliveryDate,totalBill,userID,productID) values(3,'any','2021-2-15','2021-2-22',12900,3,3);
 INSERT INTO orders(orderID,shippingAddress,orderDate,deliveryDate,totalBill,userID,productID) values(4,'newOrder','2020-6-6','2020-6-12',1200,4,4);
 INSERT INTO orders(orderID,shippingAddress,orderDate,deliveryDate,totalBill,userID,productID) values(6,'pqr','2021-3-3','2021-3-3',1290,3,5);
 INSERT INTO status(orderID,productID,deliveredSuccessfully,returned,cancelled,shipped) values(1,2,'y','n','n','y');
 INSERT INTO status(orderID,productID,deliveredSuccessfully,returned,cancelled,shipped) values(2,3,'y','y','n','y');
 INSERT INTO status(orderID,productID,deliveredSuccessfully,returned,cancelled,shipped) values(3,5,'n','n','y','y');
+INSERT INTO status(orderID,productID,deliveredSuccessfully,returned,cancelled,shipped) values(4,1,'y','n','n','y');
+INSERT INTO status(orderID,productID,deliveredSuccessfully,returned,cancelled,shipped) values(6,4,'n','n','y','y');
+
+
+create table orderLine(
+orderLines int,
+productID int,
+orderID int,
+FOREIGN KEY(productID) REFERENCES product(productID),
+FOREIGN KEY(orderID) REFERENCES orders(orderID)
+);
+insert into orderLine() values(1,1,1);
+insert into orderLine() values(2,2,2);
+insert into orderLine() values(3,3,3);
+insert into orderLine() values(4,4,4);
+insert into orderLine() values(5,5,6);
+
+
+
+
+
+
 /* query2 */
 select product.productID, product.productName,category.categoryName,product.price from product JOIN category ON 
 product.categoryID=category.categoryID where product.stocks>0 ORDER BY product.productID DESC LIMIT 10;

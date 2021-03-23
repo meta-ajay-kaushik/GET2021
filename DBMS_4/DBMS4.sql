@@ -71,11 +71,10 @@ CALL getOrderDetails('2020-1-1',CURDATE());
 DROP PROCEDURE getOrderDetails;
 
 
-
-
-
 /* Assignment 3*/
+
 
 ALTER TABLE product ADD INDEX productID (productID);
 ALTER TABLE category ADD INDEX parentCategoryID (categoryName);
 ALTER TABLE orders ADD INDEX orderIndex (orderDate);
+show index from product;

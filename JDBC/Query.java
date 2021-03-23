@@ -12,8 +12,11 @@ public class Query {
         return query;
     }
     public static String getUpdateProductStatusQuery() {
-        String query = "delete from product " + "where productID IN(select orders.productID from orders "
-                + "WHERE TIMESTAMPDIFF(YEAR,orders.orderDate,CURDATE())>=1)";
+        String query = "delete from product " + "where productID IN(select pid from "
+        		+ "(select pr.productID as pid from product pr LEFT JOIN orderLine ol "
+        		+ "ON pr.productID=ol.productID LEFT JOIN orders ors "
+        		+ "ON ors.orderID=ol.orderID GROUP BY ol.productID "
+        		+ "having TIMESTAMPDIFF(YEAR,MAX(ors.orderDate),CURDATE())>=1) as new)";
         return query;
     }
     public static String getTopCategoryDetails() {

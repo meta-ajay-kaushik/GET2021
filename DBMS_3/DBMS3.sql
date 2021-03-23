@@ -16,6 +16,42 @@ insert into productCategories values(6,2);
 select * from productCategories;
 select * from product;
 select * from category;
+select * from orders;
+select * from status;
+select * from productImages;
+set FOREIGN_KEY_CHECKS = 0;
+drop table orderLine;
+set FOREIGN_KEY_CHECKS = 0;
+create table orderLine(
+orderLines int,
+productID int,
+orderID int,
+FOREIGN KEY(productID) REFERENCES product(productID),
+FOREIGN KEY(orderID) REFERENCES orders(orderID)
+);
+insert into orderLine() values(1,1,1);
+insert into orderLine() values(2,2,2);
+insert into orderLine() values(3,3,3);
+insert into orderLine() values(4,4,4);
+insert into orderLine() values(5,5,6);
+select * from orderLine;
+select * from orders;
+
+
+
+/*jdbc testing*/
+select * from category;
+select c.categoryName,COUNT(cat.parentID) AS numberOfChildren
+FROM category c LEFT JOIN
+category cat ON cat.parentID=c.categoryID WHERE c.parentID is NULL
+GROUP BY c.categoryName ORDER BY c.categoryName
+
+select * from product;
+select * from orders;
+select * from product where productID IN(select orders.productID from orders 
+WHERE TIMESTAMPDIFF(YEAR,orders.orderDate,CURDATE())>=1);
+
+
 
 /* question2 */
 /* query1 */
@@ -44,8 +80,8 @@ pc.categoryID=c.categoryID group by c.CategoryID;
 /* query1 */
 
 SELECT userName.firstName,COUNT(*) FROM user,userName,orders where user.
-userID = userName.userID AND user.userID=orders.userID AND DATEDIFF(CURDATE(),orders.orderDate)<=30 GROUP BY user.userID;
-
+userID = userName.userID AND user.userID=orders.userID AND DATEDIFF(CURDATE(),orders.orderDate)<=200 GROUP BY user.userID;
+select * from orders;
 /*query2 */ 
 SELECT userName.firstName 
 from userName INNER JOIN orders ON userName.userID=orders.userID  
@@ -66,10 +102,10 @@ GROUP BY month;
 
 /*query5 */
 UPDATE product JOIN orders ON product.productID=orders.productID  
-SET product.statusOfProduct='inactive' where DATEDIFF(CURDATE(),orders.orderDate) >=90;
+SET product.statusOfProduct='inactive' where DATEDIFF(CURDATE(),orders.orderDate)>=90 and orders.orderDate not in
+(select orderDate from orders where DATEDIFF(CURDATE(),orders.orderDate)<=90);
 select * from product;
-
-
+select * from orders;
 
 
 
@@ -92,6 +128,11 @@ SELECT product.productID,product.productName AS "Product Title",
       GROUP BY status.productID HAVING status.cancelled='y'
       ORDER BY CancelTimes DESC LIMIT 10;
 
+
+
+select pr.productID as pid, pr.productName from product pr
+LEFT JOIN orderLine ol ON pr.productID=ol.productID LEFT JOIN
+orders ors on ors.orderID=ol.orderID where pr.statusOfProduct='cancelled' GROUP BY ol.productID;
 
 
 /* question4 */
@@ -134,3 +175,47 @@ select productName from orderInformation where statusOfProduct='shipped';
 select productName from orderInformation GROUP BY productID ORDER BY
 productName DESC LIMIT 5;
 DROP view orderInformation;
+
+UPDATE product JOIN orders ON product.productID=orders.productID  
+SET product.statusOfProduct='inactive' where DATEDIFF(CURDATE(),orders.orderDate)>=90 and orders.orderDate not in
+(select orderDate from orders where DATEDIFF(CURDATE(),orders.orderDate)<=90);
+
+select productID from product where productID not in (select productID from orders);
+
+/*assignment 3 query 5 */
+Update product prd,
+(select pr.productID as pid from product pr
+LEFT JOIN orderLine ol ON pr.productID=ol.productID LEFT JOIN
+orders ors on ors.orderID=ol.orderID GROUP BY ol.productID having
+DATEDIFF(CURDATE(),MAX(ors.orderDate))>=90 or pr.productID not in(select productID from orders))
+as new
+SET prd.statusOfProduct='inactive' where new.pid=prd.productID;
+
+use storeFront;
+select * from orders;
+select * from product;
+
+SET pr.statusOfProduct='inactive';
+
+
+/* JDBC question 3 query*/
+
+select * from orders;
+select * from product;
+
+
+SET FOREIGN_KEY_CHECKS=0;
+delete from product where productID in (select pid from (select pr.productID as pid from product pr
+LEFT JOIN orderLine ol ON pr.productID=ol.productID LEFT JOIN
+orders ors on ors.orderID=ol.orderID GROUP BY ol.productID having
+TIMESTAMPDIFF(YEAR,MAX(ors.orderDate),CURDATE())>=1) as new);
+SET FOREIGN_KEY_CHECKS=1;
+
+
+select pr.productID as pid from product pr
+LEFT JOIN orderLine ol ON pr.productID=ol.productID LEFT JOIN
+orders ors on ors.orderID=ol.orderID GROUP BY ol.productID having
+TIMESTAMPDIFF(YEAR,MAX(ors.orderDate),CURDATE())>=1;
+
+
+
