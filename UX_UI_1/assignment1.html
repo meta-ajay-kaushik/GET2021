@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metacube Parking System</title>
+  </head>
+  <!-- <body background="metacube.jpg"> -->
+    <nav>
+      <a href="#addEmployee">
+        <font size="5px"> Add Employee </font>
+      </a>
+      <a href="#addVehicle">
+        <font size="5px"> Add Vehicle </font>
+      </a>
+      <a href="#feedback">
+        <font size="5px"> Give Feedback </font>
+      </a>
+      <a href="#price">
+        <font size="5px"> Pricing </font>
+      </a>
+    </nav>
+    <br />
+    <br />
+    <div align="center">
+      <img src="metacube.jpg" />
+    </div>
+    <br />
+    <br />
+    <div align="center" id="addEmployee">
+      <form name="RegistrationForm">
+        <h1>Registration Form</h1>
+        <table cellspacing="5px" cellpadding="5px">
+          <tr>
+            <td>
+              <label>
+                <font size="5px">Full name :</font>
+              </label>
+            </td>
+            <td>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name"
+                pattern="[A-Za-z]+"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <font size="5px">Gender :</font>
+              </label>
+            </td>
+            <td>
+              <select name="gender">
+                <option selected>Select One Please</option>
+                <option>Female</option>
+                <option>Male</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <font size="5px">Email Id :</font>
+              </label>
+            </td>
+            <td>
+              <input
+                type="email"
+                name="mail"
+                placeholder="Email Address"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <font size="5px">Password :</font>
+              </label>
+            </td>
+            <td>
+              <input
+                type="password"
+                name="pass"
+                placeholder="Password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <font size="5px">Confirm Password :</font>
+              </label>
+            </td>
+            <td>
+              <input
+                type="password"
+                name="repass"
+                placeholder="Re-enter Password"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <font size="5px">Contact Number :</font>
+              </label>
+            </td>
+            <td>
+              <input
+                type="tel"
+                name="contact"
+                placeholder="Contact number"
+                pattern="^\d{10}$"
+                required
+              />
+            </td>
+          </tr>
+        </table>
+        <br />
+        <input type="submit" value="Register" />
+      </form>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div align="center" id="addVehicle">
+      <form name="VehicleDetailForm">
+        <h1>Vehicle Details Form</h1>
+        <table cellspacing="5px" cellpadding="5px">
+          <tr>
+            <td>
+              <label>
+                <font size="5px">Name :</font>
+              </label>
+            </td>
+            <td>
+              <input
+                type="text"
+                name="name"
+                placeholder="Vehicle Name"
+                pattern="[A-Za-z]+"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <font size="5px">Vehicle Type :</font>
+              </label>
+            </td>
+            <td>
+              <select name="vehType">
+                <option selected>---Select One Please---</option>
+                <option>Cylce</option>
+                <option>Motorlcyle</option>
+                <option>Four Wheelers</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <font size="5px">Vehicle Number :</font>
+              </label>
+            </td>
+            <td>
+              <input
+                type="text"
+                name="vehNum"
+                placeholder="RJ 00 XX 0000"
+                pattern="^[A-Z]{2}\s[0-9]{2}\s[A-Z]{2}\s[0-9]{4}$"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <font size="5px">Identification :</font>
+              </label>
+            </td>
+            <td><textarea name="identification" required> </textarea></td>
+          </tr>
+        </table>
+        <br />
+        <input type="submit" value="Register" />
+      </form>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div align="center" id="feedback">
+      <form name="FeedbackForm">
+        <h1>Get In Touch</h1>
+        <table>
+          <tr>
+            <td>
+              <label><font size="5px">Name :</font></label>
+            </td>
+            <td><input type="text" name="name" required /></td>
+          </tr>
+          <tr>
+            <td>
+              <label><font size="5px">Email :</font></label>
+            </td>
+            <td><input type="email" name="mail" required /></td>
+          </tr>
+          <tr>
+            <td>
+              <label><font size="5px">Subject :</font></label>
+            </td>
+            <td><input type="text" name="subject" required /></td>
+          </tr>
+          <tr>
+            <td>
+              <label><font size="5px">Message :</font></label>
+            </td>
+            <td><textarea name="msg" required rows="5"></textarea></td>
+          </tr>
+        </table>
+        <br />
+        <input type="submit" value="Send Email" />
+      </form>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div align="center" id="price">
+      <div align="center" id="cycle">
+        <h1>Cycle</h1>
+        <span><b>$100</b></span> <br />
+        <span><b>/month</b></span> <br /><br />
+        <span><em>$5 Daily</em></span> <br />
+        <span><em>$100 Monthly</em></span> <br />
+        <span><em>$500 Yearly</em></span
+        ><br /><br />
+        <input type="button" value="Purchase Now" />
+      </div>
+    </div>
+  </body>
+</html>
