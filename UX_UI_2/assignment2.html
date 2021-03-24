@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metacube Parking System</title>
+    <link rel="stylesheet" href="style.css">
   </head>
     <nav>
       <a href="#addEmployee">
@@ -27,6 +28,7 @@
     </div>
     <br />
     <br />
+    <button type="button" class="collapsible">Registration Form</button>
     <div align="center" id="addEmployee">
       <form name="RegistrationForm">
         <h1>Registration Form</h1>
@@ -123,12 +125,11 @@
           </tr>
         </table>
         <br />
-        <input type="submit" value="Register" />
+        <input type="submit" value="Register"  id="button"/>
       </form>
     </div>
-    <br />
-    <br />
-    <br />
+    <br>
+    <button type="button" class="collapsible">Vehicle Form</button>
     <div align="center" id="addVehicle">
       <form name="VehicleDetailForm">
         <h1>Vehicle Details Form</h1>
@@ -218,44 +219,37 @@
           </tr>
         </table>
         <br />
-        <input type="submit" value="Register" />
+        <input type="submit" value="Register"  id="button"/>
       </form>
     </div>
     <br />
     <br />
     <br />
     <div align="center" id="feedback">
+      <div>
+        <img src="feedback.png" alt="feedback vector image">
+      </div>
+      <div>
       <form name="FeedbackForm">
-        <h1>Get In Touch</h1>
+        <h3 id="feedbackHeading">Get In Touch</h3>
         <table>
           <tr>
-            <td>
-              <label><font>Name :</font></label>
-            </td>
-            <td><input type="text" name="name" required /></td>
+            <td><input type="text" name="name" placeholder="name" required /></td>
           </tr>
           <tr>
-            <td>
-              <label><font>Email :</font></label>
-            </td>
-            <td><input type="email" name="mail" required /></td>
+            <td><input type="email" name="mail" required placeholder="email"/></td>
           </tr>
           <tr>
-            <td>
-              <label><font>Subject :</font></label>
-            </td>
-            <td><input type="text" name="subject" required /></td>
+            <td><input type="text" name="subject" required placeholder="subject" /></td>
           </tr>
           <tr>
-            <td>
-              <label><font>Message :</font></label>
-            </td>
-            <td><textarea name="message" required rows="5"></textarea></td>
+            <td><textarea name="message" required placeholder="message" rows="5"></textarea></td>
           </tr>
         </table>
         <br />
-        <input type="submit" value="Send Email" />
+        <input type="submit" value="Send Email" id="button"/>
       </form>
+    </div>
     </div>
     <br />
     <br />
@@ -263,34 +257,39 @@
     <div align="center" id="price">
       <div align="center" id="cycle">
         <h1>Cycle</h1>
+        <section>
         <span><b>$100</b></span> <br />
-        <span><b>/month</b></span> <br /><br />
+        <span><b>/month</b></span> 
+      </section>
         <span>$5 Daily</span> <br />
         <span>$100 Monthly</span> <br />
         <span>$500 Yearly</span
         ><br /><br />
-        <input type="button" value="Purchase Now" />
+        <input type="button" value="Purchase Now" id="button"/>
       </div>
       <div align="center" id="motorcycle">
         <h1>Motor Cycle</h1>
+        <section>
         <span><b>$200</b></span> <br />
-        <span><b>/month</b></span> <br /><br />
+        <span><b>/month</b></span></section>
         <span>$10 Daily</span> <br />
         <span>$200 Monthly</span> <br />
         <span>$1000 Yearly</span
         ><br /><br />
-        <input type="button" value="Purchase Now" />
+        <input type="button" value="Purchase Now"  id="button"/>
       </div>
       <div align="center" id="fourwheelers">
         <h1>Four Wheelers</h1>
+      <section>
         <span><b>$500</b></span> <br />
-        <span><b>/month</b></span> <br /><br />
+        <span><b>/month</b></span></section>
         <span>$20 Daily</span> <br />
         <span>$500 Monthly</span> <br />
         <span>$3500 Yearly</span
         ><br /><br />
-        <input type="button" value="Purchase Now" />
+        <input type="button" value="Purchase Now"  id="button"/>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
