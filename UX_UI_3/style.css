@@ -109,23 +109,6 @@
     width: 100%;
     /* overflow: hidden; */
 }
-/* .features #featuresThird span:nth-child(1),.features #featuresThird span:nth-child(5){
-    width: 10%;
-    overflow: hidden;
-}
-.features #featuresThird span:nth-child(2),.features #featuresThird span:nth-child(4){
-    width: 25%;
-    overflow: hidden;
-} */
-/* .features #featuresThird #featuresimg1,.features #featuresThird #featuresimg5{
-    width: 15%;
-}
-.features #featuresThird #featuresimg2,.features #featuresThird #featuresimg4{
-    width: 20%;
-}
-.features #featuresThird #featuresimg3{
-    width: 30%;
-} */
 
 /* Features block end */
 
@@ -167,6 +150,7 @@
 }
 #screenshot #screenshotblock2 div{
     width: 50%;
+    margin-left: 5%;
 }
 #screenshot #screenshotblock2 div:last-child{
     text-align: center;
