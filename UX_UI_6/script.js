@@ -204,7 +204,7 @@ function fvehicleModel(item) {
       } else {
         item.style = "border:2px solid red ";
         document.getElementById("error").innerHTML =
-          "please enter valid vehicle Model ";
+          "please enter valid vehicle Model more than 2 characters ";
       }
     } else {
       item.style = "border:2px solid red ";
@@ -218,7 +218,8 @@ function fvehicleNumber(item) {
   var key = this.event.keyCode;
   if (key == 13) {
     if (item.value.length > 0) {
-      if (item.value.length > 4) {
+      const pattern = new RegExp("[A-Za-z]{2}[0-9]{2}[A-Za-z]{2}[0-9]{4}");
+      if (item.value.length > 4 && pattern.test(item.value)) {
         item.style = "border:2px solid blue ";
         document.getElementById("error").innerHTML = " ";
         item.style = "display:none ";
@@ -228,7 +229,7 @@ function fvehicleNumber(item) {
       } else {
         item.style = "border:2px solid red ";
         document.getElementById("error").innerHTML =
-          "please enter valid vehicle number ";
+          'please enter valid vehicle number like "RJ14GJ4509" ';
       }
     } else {
       item.style = "border:2px solid red ";
@@ -269,7 +270,7 @@ function fvehicleIdentication(item) {
       } else {
         item.style = "border:2px solid red ";
         document.getElementById("error").innerHTML =
-          "please enter valid vehicle identifications ";
+          "please enter valid vehicle identifications more than 4 characters";
       }
     } else {
       item.style = "border:2px solid red ";
