@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 7</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <center id="addEmployee">
+      <h1 id="headingofemployeeregistration">
+        Metacube Parking Employee Registration
+      </h1>
+      <div id="message"></div>
+      <div id="error"></div>
+      <form>
+        <div id="name">
+          <input
+            type="text"
+            id="employeeName"
+            placeholder="Enter your name"
+            onkeydown="fname(this)"
+          />
+        </div>
+        <div id="gen">
+          <input
+            type="radio"
+            name="gender"
+            id="gender"
+            onclick="fgender(this) "
+          />Male
+          <input
+            type="radio"
+            name="gender "
+            id="gender"
+            onclick="fgender(this) "
+          />Female
+        </div>
+        <div id="email">
+          <input
+            type="email"
+            id="employeeEmail"
+            placeholder="Enter your email"
+            onkeydown="femail(this) "
+          />
+        </div>
+        <div id="password">
+          <input
+            type="password"
+            id="employeePassword"
+            placeholder="Create a password"
+            onkeydown="fpassword(this)"
+          />
+        </div>
+        <div id="confirmPassword">
+          <input
+            type="password"
+            id="employeeConfirmPassword"
+            placeholder="Confirm your password"
+            onkeydown="fconfirmPassword(this)"
+          />
+        </div>
+        <div id="contact">
+          <input
+            type="number"
+            id="employeeContact"
+            placeholder="Enter contact number"
+            onkeydown="fcontact(this) "
+          />
+        </div>
+      </form>
+      <div id="addVehicle">
+        <form>
+          <div id="company">
+            <input
+              type="text"
+              id="vehcileCompanyName"
+              placeholder="Enter vehicle company name"
+              onkeydown="fvehicleCompany(this)"
+            />
+          </div>
+          <div id="model">
+            <input
+              type="text"
+              id="vehicleModel"
+              placeholder="Enter vehicle Model"
+              onkeydown="fvehicleModel(this)"
+            />
+          </div>
+          <div id="type">
+            <select id="vehicleType" onchange="fvehicleType(this)">
+              <option selected>select vehicle type</option>
+              <option>Cycle</option>
+              <option>Motor Cycle</option>
+              <option>Four Wheeler</option>
+            </select>
+          </div>
+          <div id="number">
+            <input
+              type="text"
+              id="vehicleNumber"
+              placeholder="Enter vehicle Number"
+              onkeydown="fvehicleNumber(this)"
+            />
+          </div>
+          <div id="empid">
+            <input
+              type="text"
+              id="EmployeeId"
+              placeholder="Enter your Employee Id"
+              onkeydown="fid(this)"
+            />
+          </div>
+          <div id="identification">
+            <textarea
+              id="vehicleIdentification"
+              placeholder="vehicle identification"
+              onkeydown="fvehicleIdentication(this)"
+            ></textarea>
+          </div>
+        </form>
+      </div>
+      <div id="selectCurrency">
+        <select id="currency" onchange="currencyTypeChange(this)">
+          <option selected>choose currency</option>
+          <option>INR</option>
+          <option>USD</option>
+          <option>YEN</option>
+        </select>
+      </div>
+      <div id="selectPass">
+        <select onchange="passTypeChange(this)" id="passType">
+          <option selected>choose plan</option>
+          <option value="daily" id="dailyPass">daily</option>
+          <option value="monthly" id="monthlyPass">monthly</option>
+          <option value="yearly" id="yearlyPass">yearly</option>
+        </select>
+      </div>
+      <div id="passCost"></div>
+      <div id="submitfinal">
+        <button onclick="successful()">Purchase</button>
+      </div>
+    </center>
+  </body>
+  <script src="script.js"></script>
+</html>
