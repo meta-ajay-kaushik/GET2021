@@ -145,7 +145,7 @@ let fcontact = (item) => {
   let key = this.event.keyCode;
   if (key == 13) {
     if (item.value.length > 0) {
-      let pattern = new RegExp("[789][0-9]{9}$");
+      let pattern = new RegExp("[789][0-9]{9}");
       if (pattern.test(item.value) && item.value.length > 8) {
         item.style = "border:2px solid blue ";
         document.getElementById("error").innerHTML = " ";
