@@ -79,6 +79,22 @@ function femail(item) {
 
 function fpassword(item) {
   var key = this.event.keyCode;
+  if (
+    item.value.search(/[0-9]+/) != -1 &&
+    item.value.search(/[!@#$%^&*(){}?><]+/) != -1 &&
+    item.value.search(/[A-Z]+/) != -1 &&
+    item.value.length >= 8
+  ) {
+    item.style = "border:2px solid green";
+  } else if (
+    item.value.search(/[0-9]+/) != -1 &&
+    item.value.search(/[A-Z]+/) != -1 &&
+    item.value.length >= 8
+  ) {
+    item.style = "border:2px solid orange";
+  } else {
+    item.style = "border:2px solid black";
+  }
   if (key == 13) {
     if (item.value.length > 0) {
       if (
