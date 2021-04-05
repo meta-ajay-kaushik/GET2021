@@ -1,0 +1,16 @@
+const dh = new DisplayHide();
+dh.hide("gen");
+dh.hide("email");
+dh.hide("password");
+dh.hide("confirmPassword");
+dh.hide("contact");
+dh.hide("company");
+dh.hide("model");
+dh.hide("type");
+dh.hide("number");
+dh.hide("identification");
+dh.hide("empid");
+dh.hide("submitfinal");
+dh.hide("selectCurrency");
+dh.hide("selectPass");
+const obj = new Pass();
