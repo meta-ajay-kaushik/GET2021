@@ -1,9 +1,9 @@
 class DisplayHide {
-  hide = (idName) => {
+  hide:Function = (idName:string) => {
     document.getElementById(idName).setAttribute("style", "display:none ");
   };
 
-  display = (idName) => {
+  display:Function = (idName:string) => {
     document.getElementById(idName).setAttribute("style", "display:block ");
   };
 }

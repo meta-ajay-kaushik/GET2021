@@ -1,10 +1,10 @@
 class Employee {
   name: string;
   password: string;
-  id: number;
+  id: string;
   dh = new DisplayHide();
-  fname = (item, event: KeyboardEvent) => {
-    let key = event.keyCode;
+  fname:Function = (item, event: KeyboardEvent) => {
+    let key:Number = event.keyCode;
     if (key == 13) {
       if (item.value.length > 0) {
         if (
@@ -32,7 +32,7 @@ class Employee {
     }
   };
 
-  fgender = (item, event: KeyboardEvent) => {
+  fgender:Function = (item, event: KeyboardEvent) => {
     let key = event.keyCode;
     document.getElementById(
       "message"
@@ -41,8 +41,8 @@ class Employee {
     this.dh.display("email");
   };
 
-  femail = (item, event: KeyboardEvent) => {
-    let key = event.keyCode;
+  femail:Function = (item, event: KeyboardEvent) => {
+    let key:Number = event.keyCode;
     if (key == 13) {
       if (item.value.length > 0) {
         if (item.value.search(/[a-zA-Z0-9]+[@]+[a-zA-Z]+[.]+[a-zA-Z]/) != -1) {
@@ -65,8 +65,8 @@ class Employee {
     }
   };
 
-  fpassword = (item, event: KeyboardEvent) => {
-    let key = event.keyCode;
+  fpassword:Function = (item, event: KeyboardEvent) => {
+    let key:Number = event.keyCode;
     if (
       item.value.search(/[0-9]+/) != -1 &&
       item.value.search(/[!@#$%^&*(){}?><]+/) != -1 &&
@@ -112,8 +112,8 @@ class Employee {
     }
   };
 
-  fconfirmPassword = (item, event: KeyboardEvent) => {
-    let key = event.keyCode;
+  fconfirmPassword:Function = (item, event: KeyboardEvent) => {
+    let key:Number = event.keyCode;
     if (key == 13) {
       if (item.value.length > 0) {
         if (this.password == item.value) {
@@ -138,8 +138,8 @@ class Employee {
     }
   };
 
-  fcontact = (item, event: KeyboardEvent) => {
-    let key = event.keyCode;
+  fcontact:Function = (item, event: KeyboardEvent) => {
+    let key:Number = event.keyCode;
     if (key == 13) {
       if (item.value.length > 0) {
         let pattern = new RegExp("[789][0-9]{9}$");

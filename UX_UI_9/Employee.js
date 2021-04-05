@@ -2,15 +2,6 @@ var Employee = /** @class */ (function () {
     function Employee() {
         var _this = this;
         this.dh = new DisplayHide();
-        // getName = () => {
-        //   return this.name;
-        // };
-        // getPassword = () => {
-        //   return this.password;
-        // };
-        // getID = () => {
-        //   return this.id;
-        // };
         this.fname = function (item, event) {
             var key = event.keyCode;
             if (key == 13) {

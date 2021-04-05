@@ -1,7 +1,7 @@
 class Pass extends Vehicle {
   dh = new DisplayHide();
-  currencyTypeChange = (item) => {
-    let currency = item.value;
+  currencyTypeChange:Function = (item) => {
+    let currency:String = item.value;
     if (currency == "INR") {
       if (this.vehicle == "Cycle") {
         document.getElementById("passCost").setAttribute("value", "0.07 $");
@@ -78,8 +78,8 @@ class Pass extends Vehicle {
     this.dh.display("selectPass");
   };
 
-  passTypeChange = (item) => {
-    let x = item.selectedIndex;
+  passTypeChange:Function = (item) => {
+    let x:Number = item.selectedIndex;
     if (x == 1) {
       if (this.vehicle == "Cycle") {
         document.getElementById("passCost").setAttribute("value", "0.07 $");
@@ -112,7 +112,7 @@ class Pass extends Vehicle {
     this.dh.display("submitfinal");
   };
 
-  successful = () => {
+  successful:Function = () => {
     alert(`Thank you for registration your employee id is ${this.id}`);
     this.dh.hide("message");
     this.dh.hide("submitfinal");

@@ -1,8 +1,8 @@
 class Vehicle extends Employee {
   vehicle: string;
   dh = new DisplayHide();
-  fvehicleCompany = (item, event: KeyboardEvent) => {
-    let key = event.keyCode;
+  fvehicleCompany:Function = (item, event: KeyboardEvent) => {
+    let key:Number = event.keyCode;
     if (key == 13) {
       if (item.value.length > 0) {
         if (
@@ -29,7 +29,7 @@ class Vehicle extends Employee {
     }
   };
 
-  fvehicleType = (item, event: KeyboardEvent) => {
+  fvehicleType:Function = (item, event: KeyboardEvent) => {
     let key = event.keyCode;
     document.getElementById("error").innerHTML = " ";
     item.style = "display:none ";
@@ -40,8 +40,8 @@ class Vehicle extends Employee {
     ).innerHTML = `Hi ${this.name}, enter your vehicle number `;
   };
 
-  fvehicleModel = (item, event: KeyboardEvent) => {
-    let key = event.keyCode;
+  fvehicleModel:Function = (item, event: KeyboardEvent) => {
+    let key:Number = event.keyCode;
     if (key == 13) {
       if (item.value.length > 0) {
         if (item.value.length > 2) {
@@ -65,8 +65,8 @@ class Vehicle extends Employee {
     }
   };
 
-  fvehicleNumber = (item, event: KeyboardEvent) => {
-    let key = event.keyCode;
+  fvehicleNumber:Function = (item, event: KeyboardEvent) => {
+    let key:Number = event.keyCode;
     if (key == 13) {
       if (item.value.length > 0) {
         let pattern = new RegExp("[A-Za-z]{2}[0-9]{2}[A-Za-z]{2}[0-9]{4}");
@@ -90,8 +90,8 @@ class Vehicle extends Employee {
       }
     }
   };
-  fid = (item, event: KeyboardEvent) => {
-    let key = event.keyCode;
+  fid:Function = (item, event: KeyboardEvent) => {
+    let key:Number = event.keyCode;
     if (key == 13) {
       if (item.value.length > 0) {
         item.style = "border:2px solid blue ";
@@ -110,8 +110,8 @@ class Vehicle extends Employee {
     }
   };
 
-  fvehicleIdentication = (item, event: KeyboardEvent) => {
-    let key = event.keyCode;
+  fvehicleIdentication:Function = (item, event: KeyboardEvent) => {
+    let key:Number = event.keyCode;
     if (key == 13) {
       if (item.value.length > 0) {
         if (item.value.length > 4) {
